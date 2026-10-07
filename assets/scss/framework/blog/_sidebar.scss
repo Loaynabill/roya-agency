@@ -1,0 +1,150 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.3 Sidebar css
+/*----------------------------------------*/
+
+.sidebar {
+    &-search {
+        &-box {
+            & input{
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                padding-left: 25px;
+                padding-right: 60px;
+                text-transform: capitalize;
+                color: var(--oit-clr-black);
+                background: rgba($color: #494949, $alpha: 0.1);
+                border: 1px solid transparent;
+                &::placeholder {
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: var(--oit-grey-2);
+                }
+                &:focus {
+                    border: 1px solid var(--oit-clr-black);
+                }
+            }            
+        }
+        &-button {
+            & button {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                height: 100%;
+                padding: 0 20px;
+                transform: translateY(-50%);
+                color: var(--oit-clr-white);
+                background-color: var(--oit-clr-black);
+            }
+    
+        }
+    }
+    &-widget {
+        padding: 20px 30px 30px 30px;
+        background-color: var(--oit-clr-white);
+        @media #{$lg,$xs} {
+            padding: 45px 25px;
+        }
+        &-title {
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 1.33;
+            padding-bottom: 7px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba($color: #494949, $alpha: 0.3);
+            @media #{$xxl,$xl,$lg,$md,$xs} {
+                font-size: 24px;
+            }
+        }
+        &-list-wrap {
+            & a {
+                display: block;
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        &-list {
+            width: 100%;
+            display: flex;
+            font-weight: 500;
+            font-size: 18px;
+            transition: 0.3s;
+            text-transform: capitalize;
+            justify-content: space-between;
+            @media #{$xxl,$xl,$lg,$md,$xs} {
+                font-size: 16px;
+            }
+            & span {
+                transition: .3s;
+            }
+            &.active{
+                color: var(--oit-clr-black);
+                & span {
+                    color: var(--oit-clr-black);
+                }
+            }
+            &:hover{
+                color: var(--oit-clr-black); 
+                & span {
+                    color: var(--oit-clr-black);
+                }
+            }
+        }
+        &-post {
+            & ul {
+                & li {
+                    list-style-type: none;
+                    &:not(:last-child){
+                        margin-bottom: 30px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid rgba(121, 121, 121, 0.2);
+                    }
+                }
+            }  
+            & .rc {
+                &-post {   
+                    &-thumb {
+                        margin-bottom: 15px;
+                        & img {
+                            height: 160px;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 5px;
+                        }
+                    }
+                
+                    &-title {
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 1.5;
+                        margin-bottom: 0;
+                        @media #{$xxl,$xl} {
+                            font-size: 18px;
+                        }
+                        @media #{$lg,$md,$xs} {
+                            font-size: 16px;
+                        }
+                        & a {
+                            transition: .3s;
+                            &:hover {
+                                color: var(--it-theme-1);
+                            }
+                        }
+                    }
+                }
+                &-meta {
+                    & span {
+                        display: flex;
+                        align-items: center;
+                        & i,svg {
+                            margin-right: 7px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

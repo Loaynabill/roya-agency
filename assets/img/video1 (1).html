@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anastarter — Discount Popup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #fafafa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+  }
+
+  /* Demo trigger button */
+  #reopen-btn {
+    padding: 12px 28px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  #reopen-btn:hover { background: #333; transform: translateY(-1px); }
+
+  /* Overlay */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Card */
+  .popup-card {
+    background: #fff;
+    width: 90%;
+    max-width: 380px;
+    border-radius: 18px;
+    padding: 40px 32px 32px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    transform: translateY(24px) scale(0.96);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .popup-overlay.active .popup-card {
+    transform: translateY(0) scale(1);
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .popup-close:hover { background: #111; color: #fff; border-color: #111; }
+
+  .popup-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .popup-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .popup-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .popup-code-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f4f4f4;
+    border: 1.5px dashed #bbb;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+
+  .popup-code {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #111;
+  }
+
+  .popup-copy-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    min-width: 64px;
+  }
+  .popup-copy-btn:hover { background: #333; }
+  .popup-copy-btn.copied { background: #555; }
+
+  .popup-cta {
+    display: block;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .popup-cta:hover { background: #333; }
+
+  .popup-fine {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<button id="reopen-btn">افتح البوب أب</button>
+
+<div class="popup-overlay" id="anastarterPopup">
+  <div class="popup-card">
+    <button class="popup-close" id="popupClose" aria-label="إغلاق">&times;</button>
+    <div class="popup-eyebrow">خصم خاص</div>
+    <div class="popup-title">خصم 10% على أول طلب</div>
+    <div class="popup-subtitle">استخدمي الكود دلوقتي واستمتعي بخصم فوري على مخبوزات Anastarter الطبيعية</div>
+    <div class="popup-code-box">
+      <span class="popup-code" id="popupCode">ANASTARTER10</span>
+      <button class="popup-copy-btn" id="popupCopyBtn">نسخ</button>
+    </div>
+    <a href="#" class="popup-cta" id="popupCta">تسوقي الآن</a>
+    <div class="popup-fine">العرض صالح لفترة محدودة</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const DISCOUNT_CODE = 'ANASTARTER10';
+  const AUTO_SHOW_DELAY = 2500;      // ms before first auto-show
+  const STORAGE_KEY = 'anastarter_popup_seen';
+  const SHOW_ONLY_ONCE = false;      // set true to show once per session
+
+  const overlay   = document.getElementById('anastarterPopup');
+  const closeBtn  = document.getElementById('popupClose');
+  const copyBtn   = document.getElementById('popupCopyBtn');
+  const codeEl    = document.getElementById('popupCode');
+  const reopenBtn = document.getElementById('reopen-btn');
+
+  function openPopup() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (SHOW_ONLY_ONCE) {
+      try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+    }
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closePopup();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
+  });
+
+  copyBtn.addEventListener('click', function () {
+    navigator.clipboard.writeText(DISCOUNT_CODE).then(function () {
+      copyBtn.textContent = 'تم!';
+      copyBtn.classList.add('copied');
+      setTimeout(function () {
+        copyBtn.textContent = 'نسخ';
+        copyBtn.classList.remove('copied');
+      }, 1800);
+    }).catch(function () {
+      // fallback for older browsers
+      const range = document.createRange();
+      range.selectNode(codeEl);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      copyBtn.textContent = 'تم!';
+    });
+  });
+
+  reopenBtn.addEventListener('click', openPopup);
+
+  // Auto-show once on page load (skip if already seen this session)
+  let alreadySeen = false;
+  if (SHOW_ONLY_ONCE) {
+    try { alreadySeen = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+  }
+  if (!alreadySeen) {
+    setTimeout(openPopup, AUTO_SHOW_DELAY);
+  }
+})();
+</script>
+
+</body>
+</html>

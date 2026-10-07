@@ -1,0 +1,89 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  3.1 Header Style 1
+/*----------------------------------------*/
+.oit-header-transparent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.oit-header{
+    &-logo{
+        @media #{$lg,$md,$xs}{
+            padding: 15px 0;
+        }
+    }
+    &-bar{
+        height: 56px;
+        width: 56px;
+        line-height: 56px;
+        border-radius: 50%;
+        background-color: var(--oit-clr-white);
+        @media #{$xl,$lg,$md,$xs}{
+            height: 50px;
+            width: 50px;
+        }
+        & span{
+            height: 2px;
+            width: 28px;
+            display: block;
+            margin: 5px auto;
+            transition: all .3s ease-in-out;
+            background-color: var(--oit-clr-black);
+            &:first-child{
+                transform-origin: right center;
+                transform: scaleX(0.5);
+            }
+            &:last-child{
+                transform-origin: left center;
+                transform: scaleX(0.5);
+            }
+        }
+        &:hover{
+            & span{
+                &:first-child{
+                    transform: scaleX(1);
+                }
+                &:last-child{
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+    &-menu{
+        & nav{
+            & > ul{
+                & > li {
+                    display: inline-block;
+                    margin: 0 20px;
+                    & > a{
+                        padding: 35px 0;
+                        font-weight: 600;
+                        font-size: 16px;
+                        display: inline-block;
+                        color: var(--oit-clr-black);
+                    }
+                }
+            }
+        }
+        &-2{
+            & > nav{
+                & > ul{
+                    & > li{
+                        margin: 0 30px;
+                        & > a{
+                            text-transform: uppercase;
+                            color: var(--oit-clr-white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-bdr{
+        border-bottom: 1px dashed var(--oit-clr-black);
+    }
+}

@@ -1,0 +1,24 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.7 error agency css here
+/*----------------------------------------*/
+.error {
+    &-ptb {
+        padding-top: 170px;
+        padding-bottom: 120px;
+    }
+    &-title {
+        font-weight: 700;
+        font-size: 60px;
+        @media #{$md}{
+            font-size: 50px;
+        }
+        @media #{$xs}{
+            font-size: 35px;
+        }
+        @media #{$sm}{
+            font-size: 55px;
+        }
+    }
+}

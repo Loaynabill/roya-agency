@@ -1,0 +1,60 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.4 Blog css
+/*----------------------------------------*/
+
+.oit-blog{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 40px;
+        }
+    }
+    &-content{
+        & span{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1;
+            margin-bottom: 15px;
+            display: inline-block;
+            letter-spacing: -0.02em;
+            & svg{
+                margin-right: 8px;
+                display: inline-block;
+                transform: translateY(-2px);
+            }
+        }
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 1.2;
+        @media #{$xxxl}{
+            font-size: 35px;
+        }
+        @media #{$xxl,$xl}{
+            font-size: 30px;
+        }
+        @media #{$lg,$md,$xs}{
+            font-size: 25px;
+        }
+    }
+    &-thumb{
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        & img{
+            width: 100%;
+            transition: .9s;
+        }
+    }
+    &-item{
+        &:hover{
+            & .oit-blog-thumb{
+                & img{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

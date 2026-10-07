@@ -1,0 +1,239 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.3 Buttons
+/*----------------------------------------*/
+
+.oit-btn{
+	&-border{
+		font-size: 16px;
+		font-weight: 500;
+		padding: 8px 22px;
+		padding-right: 8px;
+		border-radius: 30px;
+		display: inline-block;
+		text-transform: uppercase;
+		color: var(--oit-clr-white);
+		border: 1px solid var(--oit-clr-white);
+		gap: 10px;
+		@media #{$xl,$lg,$md,$xs}{
+			font-size: 14px;
+			padding: 5px 22px;
+			padding-right: 8px;
+		}
+		&.btn-blur-bg{
+			backdrop-filter: blur(40px);
+			background-color: rgba($color: #fff, $alpha: 0.1);
+			border-color: rgba($color: #fff, $alpha: 0.2);
+		}
+		&.btn-black-bg{
+			color: var(--oit-clr-white);
+			border-color: var(--oit-clr-black);
+			background-color: var(--oit-clr-black);
+			& i{
+				color: var(--oit-clr-black);
+				background-color: var(--oit-clr-white);
+			}
+		}
+		&.btn-white-bg{
+			padding: 10px 26px;
+			padding-right: 8px;
+			color: var(--oit-clr-black);
+			border-color: var(--oit-clr-white);
+			background-color: var(--oit-clr-white);
+			@media #{$xl,$lg,$md,$xs}{
+				padding: 5px 26px;
+				padding-right: 8px;
+			}
+			& i{
+				color: var(--oit-clr-white);
+				background-color: var(--oit-clr-black);
+			}
+			&:hover{
+				color: var(--oit-clr-black);
+			}
+		}
+		&.btn-large {
+			padding: 17px 26px;
+			@media #{$xl,$lg,$md,$xs}{
+				padding: 12px 26px;
+			}
+		}
+		&.btn-small {
+			padding-top: 4px;
+			padding-bottom: 4px;
+			border: none;
+			color: var(--oit-grey-2);
+			background-color: var(--oit-grey-1);
+		    &:hover {
+			   background-color: var(--oit-clr-black);
+		    }
+		}
+		& span{
+			position: relative;
+			z-index: 1;
+			overflow: hidden;
+			display: inline-block;
+			& span{
+				&.text-1{
+					position: relative;
+					display: block;
+					transition: 0.3s;
+					transform: translateY(-1px);
+				}
+				&.text-2{
+					position: absolute;
+					top: 100%;
+					display: block;
+					transition: 0.3s;
+					transform: translateY(-1px);
+				}
+			}
+		}
+		& i{
+			height: 38px;
+			width: 38px;
+			line-height: 38px;
+			border-radius: 50%;
+			margin-left: 2px;
+			text-align: center;
+			display: inline-block;
+			color: var(--oit-clr-black);
+			background-color: var(--oit-clr-white);
+			& span{
+				position: relative;
+				overflow: hidden;
+				width: 14px;
+				height: 14px;
+				display: inline-flex;
+			}
+			& svg{
+				transform: translateY(-2px);
+				position: absolute;
+				bottom: -1px;
+				left: 1px;
+				transition: all 0.2s ease-out;
+				&:last-child{
+					left: -12px;
+					bottom: -12px;
+					transform: translate(0, 0);
+					opacity: 0;
+				}
+			}
+		}
+		&:hover{
+			color: var(--oit-clr-white);
+			& span{
+				& span{
+					&.text-1{
+						-webkit-transform: translateY(-150%);
+						transform: translateY(-150%);
+					}
+					&.text-2{
+						top: 50%;
+						-webkit-transform: translateY(-50%);
+						transform: translateY(-50%);
+					}
+				}
+			}
+			& i{
+				& svg:first-child{
+					transform: translate(16px, -16px);
+				}
+				& svg:last-child{
+					opacity: 1;
+					visibility: visible;
+					transform: translate(13px, -13px);
+				}
+			}
+		}
+	}
+	&-line{
+		display: inline-flex;
+		align-items: center;
+		font-weight: 500;
+		font-size: 16px;
+		color: var(--oit-clr-black);
+		&.fsz-30{
+			font-size: 30px;
+			& span{
+				padding-bottom: 5px;
+			}
+			& i {
+				width: 24px;
+				height: 24px;
+				padding-bottom: 5px;
+			}
+			&:hover i svg:first-child {
+				transform: translate(24px, -24px);
+			}
+		}
+		& i{
+			position: relative;
+			overflow: hidden;
+			width: 14px;
+			height: 14px;
+			display: inline-flex;
+			margin-left: 7px;
+			& svg{
+				transform: translateY(-2px);
+				position: absolute;
+				bottom: -1px;
+				left: 1px;
+				transition: all 0.2s ease-out;
+				&:last-child{
+					left: -12px;
+					bottom: -12px;
+					transform: translate(0, 0);
+					opacity: 0;
+				}
+			}
+		}
+		&:hover{
+			color: var(--oit-clr-black);
+			& i{
+				& svg:first-child{
+					transform: translate(16px, -16px);
+				}
+				& svg:last-child{
+					opacity: 1;
+					visibility: visible;
+					transform: translate(13px, -13px);
+				}
+			}
+			& span{
+				&::after{
+					transform: translate(1rem);
+				}
+				&::before{
+					transform: translate(calc(100% + 1rem));
+				}
+			}
+		}
+		& span{
+			position: relative;
+			overflow: hidden;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				display: block;
+				bottom: 2px;
+				width: 100%;
+				height: 1px;
+				background-color: currentColor;
+				transition: transform .5s cubic-bezier(.59,.23,.22,.96);
+			}
+			&::before{
+				left: 0;
+			}
+			&::after{
+				left: calc(-1 * 1rem);
+				transform: translate(-100%);
+			}
+		}
+	}
+}
+
+
+

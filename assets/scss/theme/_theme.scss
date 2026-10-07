@@ -1,0 +1,240 @@
+@use '../utils' as *;
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Reak - Creative Agency & Portfolio HTML Template
+    Author: Ordianit
+    Support:ordianit@gmail.com
+    Description: Reak - Creative Agency & Portfolio HTML Template
+    Version: 1.0.1
+
+-----------------------------------------------------------------------------------
+
+/************ ================= ***************
+
+	-----------------
+    INDEXING START HERE
+	-----------------
+	1.1 Theme Css
+	1.2 Common Classes
+	1.4 BRAND AGENCY CSS START HERE 
+	1.5 DESIGN AGENCY CSS START HERE
+	1.6 DESIGN STUDIO CSS START HERE
+	1.7 DIGITAL AGENCY CSS HERE 
+	1.8 SOLO DESIGN AGENCY CSS START HERE
+
+
+
+**********************************************/
+
+
+/*----------------------------------------*/
+/*  1.1 Theme Css
+/*----------------------------------------*/
+
+@import url($font-link);
+
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+	max-width: 1750px;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+/*---------------------------------
+	typography css start 
+---------------------------------*/
+body {
+	font-size: 14px;
+	line-height: 26px;
+	font-weight: normal;
+	color: var(--oit-text-body);
+	font-family: var(--oit-ff-body);
+}
+
+img{
+	max-width: 100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0px;
+	font-weight: 500;
+	line-height: 1.2;
+	@include oit-transition(color);
+	color: var(--oit-clr-black);
+	font-family: var(--oit-ff-heading);
+}
+
+h1 {
+	font-size: 40px;
+}
+  
+h2 {
+font-size: 36px;
+}
+
+h3 {
+font-size: 28px;
+}
+
+h4 {
+font-size: 24px;
+}
+
+h5 {
+font-size: 20px;
+}
+
+h6 {
+font-size: 16px;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 15px;
+	line-height: 26px;
+	font-family: var(--oit-ff-p);
+	color: var(--oit-text-body);
+}
+
+
+a,
+button,
+p,
+input,
+select,
+textarea,
+li,
+.transition-3{
+	transition: .3s;
+}
+
+a:not([href]):not([class]), 
+a:not([href]):not([class]):hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+a:focus,
+a:hover{
+	color: inherit;
+	text-decoration: none;
+}
+
+a,
+button {
+	color: inherit;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+button:focus{
+    outline: 0; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="url"],
+textarea{
+	outline: none;
+	height: 56px;
+	width: 100%;
+	line-height: 56px;
+	font-size: 14px;
+	padding-left: 26px;
+	padding-right: 26px;
+	color: var(--oit-clr-white);
+	border: 1px solid var(--oit-clr-white);
+	background-color: var(--oit-clr-white);
+	@include oit-placeholder{
+		color: var(--oit-clr-white);
+	}
+	&:focus{
+		border-color: var(--oit-clr-white);
+		&::placeholder{
+			opacity: 0;
+		}
+	}
+
+}
+
+textarea{
+	line-height: 1.4;
+	padding-top: 17px;
+	padding-bottom: 17px;
+}
+
+input[type="color"] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	border-radius: 50%;
+}
+
+*::-moz-selection {
+	background: var(--oit-clr-black);
+	color: var(--oit-clr-white);
+	text-shadow: none;
+}
+::-moz-selection {
+	background: var(--oit-clr-black);
+	color: var(--oit-clr-white);
+	text-shadow: none;
+}
+::selection {
+	background: var(--oit-clr-black);
+	color: var(--oit-clr-white);
+	text-shadow: none;
+}
+
+*::-moz-placeholder {
+	color: var(--oit-clr-black);
+	font-size: 14px;
+	opacity: 1;
+}
+*::placeholder {
+	color: var(--oit-clr-black);
+	font-size: 14px;
+	opacity: 1;
+}

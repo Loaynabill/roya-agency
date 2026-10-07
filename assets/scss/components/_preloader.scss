@@ -1,0 +1,85 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.5 Preloader
+/*----------------------------------------*/
+
+ 
+ /* ===== Preloader Wrapper ===== */
+#preloader {
+	position: fixed;
+	inset: 0;
+    backdrop-filter: blur(40px);
+    background-color: rgba($color: #000000, $alpha: 0.6);
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.is-loading {
+	opacity: 1;
+	visibility: visible;
+}
+
+#preloader.is-loaded {
+	pointer-events: none;
+}
+
+/* ===== Loader Animation ===== */
+.preloader {
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+.preloader span {
+	position: absolute;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	background: #fff;
+	animation: preloader 1.3s linear infinite;
+}
+
+.preloader span:last-child {
+	animation-delay: -0.9s;
+}
+
+/* ===== Keyframes ===== */
+@keyframes preloader {
+	0% {
+		transform: scale(0);
+		opacity: 0.5;
+	}
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+  
+/*--- end of preloader ---*/
+
+
+  .scroll-top {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    bottom: -10%;
+    right: 50px;
+    font-size: 16px;
+    z-index: 9;
+    text-align: center;
+    border-radius: 50%;
+    color: var(--oit-common-white);
+    cursor: pointer;
+    background: var(--oit-theme-1);
+    transition: 1s ease;
+    border: none;
+  }
+  .scroll-top.open {
+    bottom: 80px;
+  }

@@ -1,0 +1,1123 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*                                         \
+\   1.5 DESIGN AGENCY CSS START HERE       \          
+|                                          \
+/*----------------------------------------*/
+
+
+
+/*----------------------------------------*/
+/* hero css start here
+/*----------------------------------------*/
+.oit-hero{
+    &-ptb{
+        padding-top: 160px;
+        padding-bottom: 50px;
+    }
+    &-img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-content{
+        @media #{$xs}{
+            margin-bottom: 40px;
+        }
+        & p{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            letter-spacing: -0.01em;
+            color: var(--oit-clr-white);
+            @media #{$md,$xs}{
+                font-size: 16px;
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+    &-category{
+        padding: 30px;
+        padding-top: 20px;
+        min-width: 350px;
+        border-radius: 10px;
+        display: inline-block;
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba($color: #fff, $alpha: 0.2);
+        background-color: rgba($color: #fff, $alpha: 0.1);
+        &-title{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            color: var(--oit-clr-white);
+        }
+        &-item{
+            & a{
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 1;
+                padding: 20px 0;
+                display: block;
+                letter-spacing: -0.02em;
+                color: rgba(255, 255, 255, 0.6);
+                border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+                &:hover{
+                    color: var(--oit-clr-white);
+                }
+            }
+            &.active{
+                & a{
+                    color: var(--oit-clr-white);
+                }
+            }
+        }
+    }
+    &-bigtext{
+        line-height: 0.8;
+        font-size: 245px;
+        font-weight: 700;
+        margin-bottom: 0;
+        letter-spacing: -7px;
+        color: var(--oit-clr-white);
+        @media #{$xxxl}{
+            font-size: 220px;
+        }
+        @media #{$xxl}{
+            font-size: 195px;
+        }
+        @media #{$xl}{
+            font-size: 165px;
+        }
+        @media #{$lg}{
+            font-size: 135px;
+        }
+        @media #{$md}{
+            font-size: 110px;
+        }
+        @media #{$xs}{
+            font-size: 80px;
+            letter-spacing: .7px;
+        }
+        @media #{$sm}{
+            font-size: 70px;
+            letter-spacing: .7px;
+        }
+    }
+    &-shape{
+        &-1{
+            margin-bottom: 160px;
+            display: inline-block;
+            color: var(--oit-clr-white);
+            animation: shape-rotate 2s linear infinite;
+            @media #{$xs}{
+                margin-bottom: 50px;
+            }
+        }
+    }
+    &-text-wrap{
+        @media #{$xs}{
+            margin-top: 40px;
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* about css start here
+/*----------------------------------------*/
+.oit-about{
+    &-area{
+        @media #{$xl}{
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @media #{$lg}{
+            padding-bottom: 80px;
+        }
+        @media #{$md,$xs}{
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+    &-text{
+        @media #{$xs}{
+            margin-bottom: 30px;
+        }
+        & p{
+            font-weight: 600;
+            font-size: 45px;
+            line-height: 1.2;
+            color: var(--oit-clr-black);
+            font-family: var(--oit-ff-funnel); 
+            & span{
+                color: rgba($color: #000, $alpha: 0.4);
+            }
+            @media #{$xxl}{
+                font-size: 40px;
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xl,$md}{
+                font-size: 35px;
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xs}{
+                font-size: 30px;
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+    &-thumb{
+        flex: 0 0 auto;
+        margin-right: 35px;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        @media #{$xs}{
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+        & img{
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+    &-content{
+        height: 100%;
+        padding-right: 80px;
+        @media #{$xxxl,$xxl,$xl,$lg,$md,$xs}{
+            padding-right: 0;
+        }
+        @media #{$xs}{
+            flex-wrap: wrap;
+        }
+        & p{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 130px;
+            letter-spacing: -0.04em;
+            @media #{$xxxl,$xxl,$xl,$lg,$md,$xs}{
+                & br{
+                  display: none;  
+                }
+            }
+            @media #{$xxl}{
+                font-size: 16px;
+            }
+            @media #{$xl}{
+                font-size: 15px;
+            }
+            @media #{$xs}{
+                margin-bottom: 40px;
+            }
+        }
+        &-wrap{
+            @media #{$xs}{
+                flex-wrap: wrap;
+            }
+        }
+    }
+    &-shape{
+        position: absolute;
+        top: 14%;
+        left: 12%;
+        @media #{$lg}{
+            top: 1%;
+            left: auto;
+            right: 5%;
+        }
+    }
+    &-btn{
+        @media #{$lg,$md}{
+            padding-bottom: 65px;
+        }
+        @media #{$xs}{
+            padding-bottom: 40px;
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* project css start here
+/*----------------------------------------*/
+.oit-project{
+    &-area{
+        @media #{$lg,$md,$xs}{
+            padding-top: 70px;
+        }
+        &.dg-project-style {
+            & .oit-project-content {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            & span:first-child::after {
+                display: none;
+            }
+        }
+        &.project-style-2 {
+            & .project-item-1 {
+                margin-top: 285px;
+                @media #{$md}{
+                    margin-top: 60px;
+                }
+                @media #{$xs}{
+                    margin-top: 0;
+                }
+            }
+            & .project-item-3 {
+                margin-top: 55px;
+                margin-bottom: 95px;
+                @media #{$md}{
+                    margin-top: 20px;
+                }
+                @media #{$xs}{
+                    margin-bottom: 40px;
+                    margin-top: 0px;
+                }
+            }
+            & .project-item-5 {
+                margin-top: 80px;
+                @media #{$md,$xs}{
+                    margin-top: 20px;
+                }
+            }
+            & .oit-project-thumb {
+                border-radius: 0;
+                & img {
+                    border-radius: 0;
+                }
+            }
+            & .oit-project-item {
+                border-radius: 0;
+            }
+            & .oit-project-title {
+                @media #{$lg}{
+                    font-size: 25px;
+                }
+                @media #{$md}{
+                    font-size: 20px;
+                }
+                @media #{$xs}{
+                    font-size: 25px;
+                }
+            }
+            & .oit-project-category {
+                & span {
+                    @media #{$lg,$md,$xs}{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    &-shape{
+        position: absolute;
+        top: 95px;
+        right: 2%;
+        @media #{$xxxl}{
+            right: -3%;
+            transform: scale(.6);
+        }
+        @media #{$xxl,$xl}{
+            top: 0;
+            right: -4%;
+            transform: scale(.6);
+        }
+    }
+    &-thumb {
+        width: 100%;
+        & img {
+            border-radius: 10px;
+        }
+    }
+    &-content{
+        padding: 30px;
+        padding-bottom: 15px;
+        padding-top: 25px;
+        background-color: var(--oit-grey-1);
+        @media #{$xs}{
+            flex-wrap: wrap;
+        }
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 45px;
+        line-height: 1;
+        margin-bottom: 0;
+        padding-bottom: 15px;
+        letter-spacing: -0.01em;
+        color: var(--oit-clr-black);
+        @media #{$xl,$lg}{
+            font-size: 35px;
+        }
+        @media #{$md}{
+            font-size: 30px;
+        }
+        @media #{$xs}{
+            font-size: 25px;
+        }
+        @media #{$sm}{
+            font-size: 30px;
+        }
+    }
+    &-category{
+        padding-bottom: 15px;
+        & span{
+            position: relative;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1;
+            color: #494949;
+            @media #{$sm}{
+                font-size: 18px;
+            }
+            &:first-child{
+                padding-right: 20px;
+                margin-right: 20px;
+                &::after{
+                    position: absolute;
+                    top: 9px;
+                    right: -5px;
+                    content: "";
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    background-color: #494949;
+
+                }
+            }
+        }
+    }
+    &-item{
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+
+/*----------------------------------------*/
+/* service css start here
+/*----------------------------------------*/
+.oit-service{
+    &-area{
+        @media #{$lg,$lg,$md,$xs}{
+            padding-top: 80px;
+        }
+        & .oit-project-shape {
+            @media #{$xxl,$xl}{
+                top: 2%;
+                right: 4%;
+            }
+        }
+    }
+    &-item{
+        padding: 50px;
+        border-radius: 24px;
+        margin: 0 125px;
+        margin-bottom: 50px;
+        @media #{$xxxl,$xxl,$xl,$lg,$md}{
+            margin: 0;
+            margin-bottom: 50px;
+        }
+        @media #{$xs}{
+            margin: 0;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+    }
+    &-thumb{
+        flex: 0 0 auto;
+        overflow: hidden;
+        margin-right: 35px;
+        border-radius: 14px;
+        border: 2px solid var(--oit-clr-white);
+        @media #{$lg,$md}{
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+        @media #{$xs}{
+            margin-right: 0;
+            margin-bottom: 30px;
+            flex: auto;
+        }
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        color: var(--oit-clr-black);
+        @media #{$lg}{
+            margin-bottom: 25px;
+        }
+        @media #{$lg,$md}{
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+        @media #{$xs}{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+    }
+    &-content{
+        &-wrap{
+            @media #{$lg,$md,$xs}{
+                flex-wrap: wrap;
+            }
+        }
+        & p{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            letter-spacing: -0.04em;
+            color: var(--oit-clr-black);
+            @media #{$xxl}{
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xs}{
+                font-size: 17px;
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+    &-category{
+        margin-bottom: 15px;
+        & span{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.1;
+            color: #494949;
+            letter-spacing: -0.04em;
+            @media #{$xs}{
+                font-size: 16px;
+            }
+            & svg{
+                margin-right: 10px;
+                transform: translateY(2px);
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* funfact css start here
+/*----------------------------------------*/
+.oit-funfact{
+    &-title{
+        font-weight: 400;
+        font-size: 100px;
+        line-height: .8;
+        margin-bottom: 35px;
+        text-transform: uppercase;
+        color: var(--oit-clr-black);
+        & i{
+            font-style: normal;
+        }
+    }
+    &-area {
+       & .row {
+            > [class^="col"]:not(:last-child) {
+                & .oit-funfact-item {
+                    border-inline-end: 1px solid rgba(#000, 0.1);
+                    @media #{$lg,$md,$xs}{
+                        border-inline-end: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-item{
+        padding: 65px 30px;
+        height: 100%;
+        @media #{$xl}{
+            padding: 40px 20px;
+        }
+        @media #{$lg,$md,$xs}{
+            padding: 30px 0;
+            border-right: 0;
+        }
+        & span{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            @media #{$xl}{
+                font-size: 14px;
+            }
+        }
+    }
+    &-bdr{
+        border-top: 1px solid rgba(#000, 0.1);
+        border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+    }
+    &-area{
+        & .row{
+            [class*="col-"]{
+                &:last-child{
+                    & .oit-funfact-item{
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* award css start here
+/*----------------------------------------*/
+.oit-award{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+    &-title-box{
+        & p{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.6;
+            letter-spacing: -0.04em;
+            @media #{$xl}{
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xs}{
+                font-size: 16px;
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+    &-icon{
+        transition: all .3s ease-in-out;
+        @media #{$xs}{
+            text-align: center;
+        }
+    }
+    &-content{
+        @media #{$xs}{
+            flex-direction: column;
+        }
+        & p,
+        & span{
+            font-weight: 500;
+            font-size: 30px;
+            line-height: .87;
+            margin-bottom: 0;
+            transition: all .3s ease-in-out;
+            @media #{$xxl}{
+                font-size: 25px;
+            }
+            @media #{$xl,$lg,$md}{
+                font-size: 20px;
+            }
+            @media #{$xs}{
+                flex-wrap: wrap;
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+        & p{
+            padding-left: 20px;
+            @media #{$xs}{
+                padding-left: 0;
+                padding: 20px 0;
+            }
+        }
+        & span{
+            color: var(--oit-clr-black);
+        }
+    }
+    &-item{
+        padding: 35px 0;
+        border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+        &:hover{
+            & .oit-award-icon{
+                transform: translateX(20px);
+                @media #{$xs}{
+                    transform: translateX(0px);
+                }
+            }
+            & .oit-award-content{
+                & span{
+                    @media #{$xs}{
+                        transform: translateX(0px);
+                    }
+                }
+            }
+        }
+        &-wrap{
+            border-top: 1px solid rgba($color: #000, $alpha: 0.1);
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* team css start here
+/*----------------------------------------*/
+.oit-team{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+    }
+    &-item{
+        padding: 55px 50px;
+        border-radius: 10px;
+        background-color: #F5F5F5;
+        @media #{$lg,$md,$xs}{
+            padding: 30px 30px;
+        }
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 1.2;
+        @media #{$xl}{
+            font-size: 40px;
+        }
+        @media #{$lg}{
+           font-size: 30px;
+        }
+        @media #{$md}{
+           font-size: 25px;
+        }
+        @media #{$xs}{
+           font-size: 25px;
+        }
+    }
+    &-content{
+        & span{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1;
+            display: inline-block;
+            color: rgba(13, 13, 13, 0.6);
+            @media #{$md}{
+                font-size: 16px;
+            }
+            @media #{$xs}{
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &-social{
+        & span{
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 1;
+            color: var(--oit-clr-black);
+            @media #{$lg,$md}{
+                font-size: 20px;
+            }
+            @media #{$xs}{
+                font-size: 16px;
+            }
+            &:not(:first-child){
+                margin-left: 30px;
+                @media #{$xs}{
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* price css start here
+/*----------------------------------------*/
+.oit-price{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 80px;
+            padding-bottom: 50px;
+        }
+        & .oit-section-title-box{
+            @media #{$xl}{
+                padding-left: 0;
+                margin-bottom: 50px;
+            }
+        }
+    }
+    &-item{
+        padding: 45px 50px;
+        border-radius: 30px;
+        min-height: 585px;
+        background-color: #101216;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        @media #{$xxl,$xl,$lg,$md,$xs}{
+            min-height: auto;
+        }
+        @media #{$xxl,$xl}{
+            padding: 35px 40px;
+        }
+        @media #{$lg,$md,$xs}{
+            padding: 30px;
+        }
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.3;
+        color: var(--oit-clr-white);
+        @media #{$xxl,$xl}{
+            font-size: 25px;
+        }
+        @media #{$xs}{
+           font-size: 20px;
+        }
+    }
+    &-head{
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        @media #{$md,$xs}{
+            flex-wrap: wrap;
+        }
+        &-content{
+            @media #{$md}{
+                margin-right: 20px;
+                margin-bottom: 30px;
+            }
+            @media #{$xs}{
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            & p{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 0;
+                color: rgba(255, 255, 255, 0.7);
+                @media #{$xxl}{
+                    & br{
+                        display: none;
+                    }
+                }
+                @media #{$xs}{
+                    font-size: 16px;
+                    & br{
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-btn{
+            & .nav{
+                padding: 6px;
+                border-radius: 1000px;
+                background-color: #0D0D0D;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                & button{
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 1;
+                    text-align: center;
+                    border-radius: 1000px;
+                    padding: 18px 19px;
+                    display: inline-block;
+                    color: var(--oit-clr-white);
+                    background-color: transparent;
+                    @media #{$xl,$lg}{
+                        font-size: 16px;
+                        padding: 10px 19px;
+                    }
+                    @media #{$md,$xs}{
+                        padding: 11px 20px;
+                    }
+                    &.active{
+                        color: var(--oit-clr-black);
+                        background-color: var(--oit-clr-white);
+                    }
+                }
+            }
+        }
+    }
+    &-list{
+        &-item{
+            display: flex;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            letter-spacing: -0.04em;
+            color: rgba(255, 255, 255, 0.7);
+            @media #{$md}{
+                font-size: 14px;
+            }
+            & i{
+                margin-right: 8px;
+                transform: translateY(-1px);
+            }
+        }
+        &-label{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.2;
+            color: var(--oit-clr-white);
+        }
+    }
+    &-btn-box{
+        padding: 20px 40px;
+        padding-right: 20px;
+        border-radius: 10px;
+        background-color: #0D0D0D;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        @media #{$xs}{
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+    }
+    &-range{
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 1.2;
+        color: var(--oit-clr-white);
+        @media #{$xs}{
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        & i{
+            font-style: normal;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    &-avater{
+        &-box{
+            @media #{$xs}{
+                flex-wrap: wrap;
+                & img{
+                    margin-bottom: 10px;
+                }
+            }
+            & span{
+                position: relative;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.6;
+                letter-spacing: -0.04em;
+                color: rgba(255, 255, 255, 0.7);
+                &::before{
+                    content: "";
+                    height: 15px;
+                    width: 15px;
+                    margin-right: 7px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    background-color: #15DB46;
+                }
+            }
+        }
+    }
+    &-info{
+        padding: 40px 40px;
+        border-radius: 10px;
+        background-color: #0D0D0D;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        @media #{$xxl}{
+            padding: 40px 30px;
+        }
+        @media #{$xs}{
+            padding: 10px;
+        }
+        &-icon{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 58px;
+            text-align: center;
+            font-size: 24px;
+            margin-right: 15px;
+            flex: 0 0 auto;
+            color: rgba($color: #fff, $alpha: 0.8);
+            background-color: #101216;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        &-desc{
+            & span{
+                display: block;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.2;
+                margin-bottom: 12px;
+                color: rgba(255, 255, 255, 0.7);
+            }
+            & a{
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 1.1;
+                color: var(--oit-clr-white);
+                @media #{$xs}{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* faq css start here
+/*----------------------------------------*/
+.oit-faq{
+    &-area{
+        @media #{$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 50px;
+        }
+    }
+    &-style{
+        & .oit-price-item {
+            padding: 45px 50px;
+            min-height: auto;
+            display: inline-block;
+            @media #{$xl}{
+                padding: 30px;
+            }
+            @media #{$md,$xs}{
+                padding: 30px;
+                width: 100%;
+            }
+        }
+    }
+    &-accordion{
+        &-wrap{
+            & .accordion-item{
+                position: relative;
+                margin-bottom: 25px;
+                padding: 30px 40px;
+                border-radius: 10px;
+                background-color: var(--oit-clr-white);
+                @media #{$xs}{
+                    padding: 30px;
+                }
+            }
+            & .accordion-button{
+                font-weight: 600;
+                font-size: 30px;
+                line-height: 1.3;
+                padding-right: 40px;
+                font-family: var(--oit-ff-funnel);
+                @media #{$xxl,$xl,$lg,$md,$xs}{
+                    font-size: 20px;
+                }
+                &:not(.collapsed){
+                    & .accordion-icon{
+                        & svg{
+                            transform: rotate(135deg);
+                        }
+                    }
+                }
+            }
+            & .accordion-body{
+                padding-right: 50px;
+                @media #{$xs}{
+                    padding-right: 0;
+                }
+                & p{
+                    padding-top: 10px;
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 1.6;
+                    letter-spacing: -0.04em;
+                    @media #{$xxl,$xl,$lg,$md,$xs}{
+                        font-size: 15px;
+                    }
+                }
+            }
+            & .accordion-icon{
+                position: absolute;
+                top: -3px;
+                right: 0;
+                & svg{
+                    transition: .3s;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* text-slider css start here
+/*----------------------------------------*/
+.oit-text-slider{
+    &-area{
+        @media #{$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 60px;
+        }
+    }
+    &-item{
+        gap: 40px;
+        -webkit-animation: text-slide-animation 30s linear infinite;
+        animation: text-slide-animation 30s linear infinite;
+        transition: animation-duration 300ms;
+        &.slide-ltr{
+            -webkit-animation: text-slide-animation-2 30s linear infinite;
+            animation: text-slide-animation-2 30s linear infinite;
+            transition: animation-duration 300ms;
+        }
+        & span{
+            font-weight: 800;
+            font-size: 100px;
+            line-height: 1;
+            color: #494949;
+            white-space: nowrap;
+            text-transform: uppercase;
+            @media #{$xs}{
+                font-size: 60px;
+            }
+            & svg{
+                margin-top: -10px;
+                display: inline-block;
+                animation: shape-rotate 10s linear infinite;
+            }
+        }
+        & img{
+            margin: 0 -20px;
+        }
+    }
+    &-btn{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        margin: 0 auto;
+        text-align: center;
+        transform: translateY(-50%);
+    }
+}

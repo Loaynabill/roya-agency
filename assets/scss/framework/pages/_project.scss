@@ -1,0 +1,167 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.4 project details css
+/*----------------------------------------*/
+
+.project-details {
+    &-area {
+        @media #{$xxl,$xl,$lg,$md,$xs}{
+            padding: 70px 0;
+        }
+        & .project-details-thumb-box.mb-110 {
+            @media #{$md,$xs}{
+                margin-bottom: 50px !important;
+            }
+        }
+        & .postbox-dsc p {
+            font-size: 30px;
+            line-height: 1.33;
+            letter-spacing: 0;
+            margin-right: 70px;
+            @media #{$xxl} {
+                margin-right: 0;
+                font-size: 25px;
+            }
+            @media #{$xl,$lg,$md} {
+                margin-right: 0;
+                font-size: 20px;
+            }
+            @media #{$xs} {
+                margin-right: 0;
+                font-size: 16px;
+            }
+        }
+        & .career-details-list li {
+            padding-left: 35px;
+            &:not(:last-child) {
+                margin-bottom: 17px;
+            }
+            & span {
+                font-weight: 600;
+                font-size: 30px;
+                display: inline-block;
+                margin-bottom: 5px;
+                 @media #{$xxl,$xl,$lg,$md,$xs}{
+                    font-size: 16px;
+                }
+                & svg,i {
+                    top: 8px;
+                }
+            }
+            & p {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 1.5;
+                margin-bottom: 0;
+                @media #{$xxl,$xl,$lg,$md,$xs}{
+                    font-size: 15px;
+                }
+            }
+        }
+        &.style-2 {
+            & .career-details-list li span {
+                font-weight: 500;
+                font-size: 20px;
+                margin-bottom: 0;
+                @media #{$md,$xs}{
+                    font-size: 15px;
+                }
+                & svg,i {
+                    top: 0;
+                }
+            }
+            & .sd-funfact-card {
+                padding: 30px 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: space-between;
+                &.card-1 {
+                    @media #{$lg,$md,$xs}{
+                        min-height: 200px;
+                    }
+                }
+                & span {
+                    text-align: start;
+                }
+            }
+        }
+    }
+    &-thumb {
+        & img {
+            border-radius: 10px;
+        }
+    }
+    &-subtitle {
+        display: block;
+        margin-bottom: 55px;
+    }
+    &-author-list {
+        & ul {
+            & li {
+                display: flex;
+                padding: 26px 0;
+                align-items: center;
+                list-style-type: none;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--oit-grey-2);
+                &:first-child {
+                    border-top: 1px solid var(--oit-grey-2);
+                }
+                & span {
+                    font-weight: 500;
+                    font-size: 30px;
+                    color: var(--oit-clr-black);
+                    @media #{$xxl,$xl,$lg,$md}{
+                        font-size: 20px;
+                    }
+                    @media #{$xs}{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+.project-slide {
+    &-active {
+        margin: 0 -480px;
+        @media #{$xl,$lg,$md,$xs}{
+            margin: 0;
+        }
+    }
+    &-style {
+        & .oit-project-title {
+            font-weight: 600;
+            font-size: 30px;
+            @media #{$md,$xs}{
+                font-size: 20px;
+            }
+        }
+        & .oit-project-category {
+            & span {
+                @media #{$md,$xs}{
+                    font-size: 14px;
+                }
+                &:first-child::after {
+                    @media #{$md,$xs}{
+                        top: 7px;
+                        height: 5px;
+                        width: 5px;
+                    }
+                }
+            }
+        }
+        & .oit-project-content {
+            background-color: var(--oit-clr-white);
+        }
+        & .oit-project-item {
+            background-color: var(--oit-clr-white);
+        }
+    }
+}
+.oit-project-area.p-relative.mt-50.pt-150.pb-150 {
+    @media #{$md,$xs}{
+        padding: 70px 0 !important;
+    }
+}

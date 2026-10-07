@@ -1,0 +1,433 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*                                         \
+\   1.8 SOLO DESIGN AGENCY CSS START HERE  \          
+|                                          \
+/*----------------------------------------*/
+
+
+/*----------------------------------------*/
+/* hero css start here
+/*----------------------------------------*/
+.sd-hero{
+    &-bg{
+        overflow: hidden;
+        padding-top: 300px;
+        padding-bottom: 40px;
+        @media #{$xl,$lg,$md}{
+            padding-top: 230px;
+        }
+        @media #{$xs}{
+            padding-top: 180px;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+        }
+    }
+    &-video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        & video{
+            object-fit: cover;
+            background-size: covar;
+        }
+    }
+    &-title{
+        font-size: 320px;
+        line-height: 0.8;
+        margin-bottom: 220px;
+        color: var(--oit-clr-white);
+        @media #{$xl}{
+            font-size: 200px;
+        }
+        @media #{$lg}{
+            font-size: 180px;
+            margin-bottom: 100px;
+        }
+        @media #{$md}{
+            font-size: 150px;
+            margin-bottom: 100px;
+        }
+        @media #{$xs}{
+            font-size: 70px;
+            margin-bottom: 100px;
+        }
+    }
+    &-info{
+        & span, & a{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.3;
+            letter-spacing: -0.05em;
+            color: var(--oit-clr-white);
+        }
+        & img{
+            flex: 0 0 auto;
+            margin-right: 20px;
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* about css start here
+/*----------------------------------------*/
+.sd-about{
+    &-mission{
+        &-wrap{
+            padding: 35px 30px;
+            min-width: 900px;
+            border-radius: 10px;
+            display: inline-block;
+            background: var(--oit-clr-white);
+            box-shadow: 0 4px 50px 0 rgba(13, 13, 13, 0.05);
+            @media #{$xxl,$xl,$lg,$md,$xs}{
+                min-width: auto;
+            }
+            & .nav-tab{
+                padding-bottom: 20px;
+                & li{
+                    & button{
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 1;
+                        letter-spacing: -0.04em;
+                        color: rgba(73, 73, 73, 0.8);
+                        &.active{
+                            color: var(--oit-clr-black);
+                        }
+                    }
+                    &:not(:last-child){
+                        margin-right: 50px;
+                        @media #{$xs}{
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+            & .tab-content{
+                & p{
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 1.7;
+                    letter-spacing: -0.02em;
+                    color: rgba(73, 73, 73, 0.8);
+                    @media #{$xl,$lg,$md,$xs}{
+                        & br{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* service css start here
+/*----------------------------------------*/
+.sd-service{
+    &-style{
+        &.oit-service-area{
+            @media #{$xl,$lg,$md,$xs}{
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+        }
+        & .oit-section-title-box{
+            @media #{$xl,$lg,$md,$xs}{
+                margin-bottom: 40px;
+            }
+        }
+        & .oit-service-thumb {
+            margin-right: 0;
+            border: none;
+            margin-bottom: 0;
+            @media #{$xs}{
+                & img{
+                    width: 100%;
+                }
+            }
+        }
+        & .oit-service-content-wrap{
+            padding-right: 80px;
+            @media #{$lg,$md,$xs}{
+                padding-right: 20px;
+            }
+        }
+        & .oit-service-item {
+            @media #{$lg}{
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+            @media #{$md,$xs}{
+                flex-wrap: wrap;
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+        }
+        & .oit-service-content{
+            @media #{$md,$xs}{
+                margin-bottom: 30px;
+            }
+        }
+        & .oit-service-content p {
+            margin-bottom: 50px;
+        }
+        & .oit-service-category span {
+            color: var(--oit-clr-black);
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* project css start here
+/*----------------------------------------*/
+.sd-project{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* funfact css start here
+/*----------------------------------------*/
+.sd-funfact{
+    &-title{
+        font-weight: 400;
+        font-size: 60px;
+        line-height: .9;
+        text-transform: uppercase;
+        color: var(--oit-clr-black);
+        & i{
+            font-style: normal;
+        }
+    }
+    &-card{
+        position: relative;
+        padding: 40px;
+        z-index: 1;
+        border-radius: 10px;
+        &.card-1{
+            min-height: 200px;
+            @media #{$lg,$md,$xs}{
+                min-height: 300px;
+            }
+        }
+        &.card-2{
+            min-height: 540px;
+            @media #{$xxl}{
+                min-height: 450px;
+            }
+            @media #{$xl}{
+                min-height: 400px;
+            }
+            @media #{$lg,$md,$xs}{
+                min-height: 300px;
+            }
+        }
+        &.card-3{
+            min-height: 260px;
+            @media #{$lg,$md,$xs}{
+                min-height: 300px;
+            }
+        }
+        &.card-4{
+            min-height: 400px;
+            @media #{$lg,$md,$xs}{
+                min-height: 300px;
+            }
+        }
+        & span{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.4;
+            text-align: end;
+            text-transform: uppercase;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+        &.sd-content-white{
+            & span{
+                color: var(--oit-clr-white);
+            }
+            & .sd-funfact-title{
+                color: var(--oit-clr-white);
+            }
+        }
+    }
+    &-shape{
+        &-1{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+        &-1{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+        &-3{
+            position: absolute;
+            top: 0%;
+            right: 14%;
+            @media #{$xxl}{
+                transform: scale(.7);
+            }
+            @media #{$xl}{
+                top: -5%;
+                transform: scale(.5);
+            }
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* choose css start here
+/*----------------------------------------*/
+.sd-choose{
+    &-top{
+        &-content{
+            & p{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.7;
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+    &-card{
+        border-radius: 10px;
+        padding: 10px;
+        background-color: var(--oit-clr-white);
+        &-icon{
+            margin-right: 10px;
+            color: var(--oit-clr-black);
+        }
+        &-title{
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 1.1;
+            margin-bottom: 0;
+            letter-spacing: -0.01em;
+            color: var(--oit-clr-black);
+        }
+        &-inner{
+            border-radius: 10px;
+            border: 1px solid var(--oit-clr-black);
+        }
+        &-head{
+            padding: 40px;
+            border-bottom: 1px solid var(--oit-clr-black);
+        }
+        &-body{
+            padding: 50px 40px 35px 40px;
+            & p{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 0;
+                letter-spacing: -0.04em;
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* team css start here
+/*----------------------------------------*/
+.sd-team{
+    &-area{
+        & .oit-section-title-box{
+            @media #{$xl,$lg,$md,$xs}{
+                margin-bottom: 40px;
+            }
+        }
+        & .shape-1 {
+            position: absolute;
+            top: 6%;
+            right: 13%;
+        }
+    }
+    &-row{
+        &-wrap{
+            border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+        }
+        &-item{
+            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+            & .row{
+                [class*="col"]{
+                    &:not(:last-child){
+                        & .sd-team-item{
+                            border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-thumb{
+        overflow: hidden;
+        flex: 0 0 auto;
+        margin-right: 25px;
+        & img{
+            border-radius: 10px;
+        }
+    }
+    &-content{
+        & span{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1;
+        }
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.1;
+        color: var(--oit-clr-black);
+    }
+    &-item{
+        height: 100%;
+        padding: 30px 0;
+        @media #{$lg,$md,$xs}{
+            padding: 15px 0;
+        }
+    }
+    &-social{
+        & a{
+            height: 50px;
+            width: 50px;
+            line-height: 46px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            color: var(--oit-clr-black);
+            background-color:  rgba(13, 13, 13, 0.08);
+            &:hover{
+                color: var(--oit-clr-white);
+                background-color: var(--oit-clr-black);
+            }
+        }
+    }
+
+}

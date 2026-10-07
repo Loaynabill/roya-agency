@@ -1,0 +1,90 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.15 Section Title
+/*----------------------------------------*/
+
+.oit-section{
+    &-subtitle{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.1;
+        display: inline-block;
+        text-transform: uppercase;
+        &-box{
+            @media #{$lg,$md,$xs}{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 144px;
+        line-height: 1.06;
+        @media #{$xxl}{
+            font-size: 100px;
+        }
+        @media #{$xl}{
+            font-size: 80px;
+        }
+        @media #{$lg}{
+            font-size: 80px;
+            & span{
+                padding-left: 0;
+            }
+        }
+        @media #{$md}{
+            font-size: 70px;
+            & span{
+                padding-left: 0;
+            }
+        }
+        @media #{$xs}{
+            font-size: 40px;
+            & br {
+                display: none;
+            }
+            & span{
+                padding-left: 0;
+            }
+        }
+        @media #{$sm}{
+            font-size: 50px;
+            & span{
+                padding-left: 0;
+            }
+        }
+        &.fsz-60{
+            font-size: 60px;
+            @media #{$xxl}{
+                font-size: 50px;
+            }
+            @media #{$xl}{
+                font-size: 44px;
+            }
+            @media #{$xs}{
+                font-size: 35px;
+            }
+        }
+        &.fsz-120{
+            font-size: 120px;
+            font-weight: 500;
+            line-height: .9;
+            @media #{$xxxl}{
+                font-size: 90px;
+            }
+            @media #{$xxl,$xl,$lg,$md}{
+                font-size: 80px;
+            }
+            @media #{$xs}{
+                font-size: 60px;
+            }
+        }
+        &-box{
+            @media #{$xl,$lg,$md,$xs}{
+                padding-left: 0;
+                margin-bottom: 40px;
+            } 
+        }
+    }
+}

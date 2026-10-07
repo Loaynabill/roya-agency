@@ -1,0 +1,30 @@
+
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.4 service details css
+/*----------------------------------------*/
+.service-details {
+    &-area {
+        & .career-details-list li span {
+            font-weight: 500;
+            color: var(--oit-text-body);
+        }
+        & .dg-step-item p {
+            font-size: 14px;
+            line-height: 1.7;
+            letter-spacing: -0.06em;
+        }
+        & .dg-step-title {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.oit-service{
+    &-1{
+        & .oit-service-item {
+            margin: 0;
+            margin-bottom: 50px;
+        }
+    }
+}

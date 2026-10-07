@@ -1,0 +1,39 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/* brand details css
+/*----------------------------------------*/
+.brand {
+    &-area {
+        @media #{$md,$xs}{
+            padding-bottom: 0;
+        }
+        &.brand-style-2 {
+            & .brand-item {
+                background-color: #101216;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+        }
+    }
+    &-item {
+        height: 125px;
+        line-height: 125px;
+        padding: 10px 49px;
+        border-radius: 10px;
+        margin-bottom: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--oit-grey-1);
+        @media #{$xl,$lg,$md,$xs}{
+            height: 90px;
+            padding: 10px 15px;
+        }
+        & img {
+            height: 40px;
+            @media #{$xl,$lg,$md,$xs}{
+                width: 120px;
+                height: 30px;
+            }
+        }
+    }
+}

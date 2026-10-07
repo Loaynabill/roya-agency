@@ -1,0 +1,868 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*                                         \
+\   1.7 DIGITAL AGENCY CSS HERE            \          
+|                                          \
+/*----------------------------------------*/
+
+
+
+/*----------------------------------------*/
+/* hero css start here
+/*----------------------------------------*/
+.dg-hero{
+    &-bdr{
+        padding-left: 110px;
+        border-left: 1px dashed var(--oit-clr-black);
+        border-right: 1px dashed var(--oit-clr-black);
+        @media #{$xxl,$xl}{
+            padding-left: 20px;
+        }
+        @media #{$lg,$md}{
+            padding-left: 20px;
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+        @media #{$xs}{
+            padding-left: 20px;
+            padding-top: 120px;
+            padding-right: 20px;
+            padding-bottom: 60px;
+        }
+    }
+    &-title{
+        font-weight: 800;
+        font-size: 200px;
+        line-height: .95;
+        text-transform: uppercase;
+        @media #{$xxxl}{
+            font-size: 145px;
+        }
+        @media #{$xxl}{
+            font-size: 140px;
+        }
+        @media #{$xl}{
+            font-size: 100px;
+        }
+        @media #{$lg}{
+            font-size: 90px;
+        }
+        @media #{$md}{
+            font-size: 60px;
+        }
+        @media #{$xs}{
+            font-size: 35px;
+            margin-bottom: 0;
+        }
+        &-box{
+            @media #{$md,$xs}{
+                margin-bottom: 20px;
+            } 
+        }
+        & img{
+            transform: translateY(-16px);
+            border-radius: 1000px;
+            @media #{$xxxl,$xxl}{
+                transform: translateY(0);
+            }
+            @media #{$xl,$lg,$md,$xs}{
+                display: none;
+            }
+        }
+    }
+    &-content{
+        & p{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+            letter-spacing: -0.01em;
+            color: var(--oit-clr-black);
+            @media #{$xxl,$xl,$lg,$md,$xs}{
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-img{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+        @media #{$xl}{
+            max-width: 40%;
+        }
+        @media #{$lg,$md,$xs}{
+            border-radius: 10px;
+        }
+        @media #{$lg,$md,$xs}{
+            position: static;
+            max-width: 40%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* about css start here
+/*----------------------------------------*/
+.dg-about{
+    &-style{
+        @media #{$lg,$md,$xs}{
+            padding-top: 70px;
+        }
+        &.oit-about-area{
+            @media #{$xs}{
+                padding-bottom: 30px;
+            }
+        }
+        & .oit-about-text{
+            @media #{$lg,$md,$xs}{
+                margin-bottom: 40px;
+            }
+        }
+        & .oit-about-thumb {
+            margin-right: 0;
+            height: auto;
+        }
+        & .oit-about-content {
+            height: auto;
+            @media #{$lg,$md,$xs}{
+                margin-bottom: 40px;
+            }
+            & p {
+                margin-bottom: 40px;
+                padding-right: 120px;
+                @media #{$xxl,$xl}{
+                    padding-right: 0;
+                }
+                @media #{$lg,$md,$xs}{
+                    padding-right: 0;
+                    font-size: 16px;
+                }
+            }
+        }
+        & .oit-funfact-item {
+            padding: 0;
+            border-right: 0;
+            @media #{$xs}{
+                margin-bottom: 30px;
+            }
+            & span{
+                @media #{$lg,$xs}{
+                    font-size: 14px;
+                }
+            }
+        }
+        & .oit-funfact-title {
+            @media #{$lg}{
+                font-size: 80px;
+                margin-bottom: 12px;
+            }
+        }
+    }
+    &-shape{
+        position: absolute;
+        top: 8%;
+        right: 10%;
+        @media #{$xxl,$xl}{
+            right: 3%;
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* service css start here
+/*----------------------------------------*/
+.dg-service{
+    &-style{
+        & .oit-service-item {
+            padding: 20px;
+            border: 1px solid rgba($color: #fff, $alpha: 0.1);
+            @media #{$md,$xs}{
+                flex-wrap: wrap;
+            }
+        }
+        & .oit-service-title {
+            color: var(--oit-clr-white);
+        }
+        & .oit-service-content{
+            @media #{$xs}{
+                padding-bottom: 30px;
+            }
+            &  p {
+                padding-bottom: 30px;
+                margin-bottom: 40px;
+                color: rgba(255, 255, 255, 0.7);
+                border-bottom: 1px solid rgba($color: #fff, $alpha: 0.1);
+            }
+            &-wrap{
+                padding: 20px 30px;
+                padding-right: 62px;
+                @media #{$xs}{
+                    padding: 0;
+                }
+            }
+        }
+        & .oit-service-category span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        & .oit-service-thumb {
+            margin-right: 0;
+            border: 2px solid var(--oit-clr-white);
+            @media #{$md,$xs}{
+                margin-bottom: 0;
+                width: 100%;
+            }
+            & img{
+                @media #{$md,$xs}{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------*/
+/* project css start here
+/*----------------------------------------*/
+.dg-project{
+    &-style{
+        @media #{$lg,$md,$xs}{
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        & .oit-project-content {
+            background-color: transparent;
+        }
+        & .oit-project-thumb{
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        & .oit-project-shape {
+            top: -3%;
+            right: -6%;
+            @media #{$xl}{
+                right: -7%;
+                transform: scale(.4);
+            }
+        }
+        & .oit-section-title-box{
+            @media #{$xl}{
+                margin-bottom: 60px;
+            }
+        }
+        & .oit-project-btn{
+            @media #{$xl,$lg,$md,$xs}{
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* funfact css start here
+/*----------------------------------------*/
+.dg-funfact{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+    &-style{
+        & .oit-award-title-box p {
+            padding-right: 110px;
+            @media #{$xl,$lg,$md,$xs}{
+                padding-right: 0;
+            }
+        }
+    }
+    &-item{
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+        & p{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 0;
+            text-align: end;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 120px;
+        line-height: .67;
+        text-transform: uppercase;
+        color: var(--oit-clr-black);
+        @media #{$xxxl}{
+            font-size: 90px;
+        }
+        @media #{$xxl,$xl,$lg,$md}{
+            font-size: 80px;
+        }
+        @media #{$xs}{
+            font-size: 60px;
+        }
+        & span{
+            font-size: 45px;
+        }
+        & i{
+            font-style: normal;
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* bin-to-card css start here
+/*----------------------------------------*/
+.oit-bin-to-card {
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 40px;
+        }
+    }
+    &-item {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 10px;
+        padding: 30px 30px 40px 30px;
+        &.card-1{
+            min-height: 425px;
+        }
+        &.card-3{
+            min-height: 300px;
+        }
+        & p {
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--oit-clr-white);
+        }
+        & > span {
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--oit-grey-2);
+            @media #{$xxl}{
+                font-size: 14px;
+            }
+            & i {
+                font-weight: 700;
+                font-size: 16px;
+                font-style: normal;
+                letter-spacing: -0.02em;
+                color: var(--oit-clr-black);
+            }
+            &.style-2 {
+                font-size: 16px;
+            }
+        }
+        & > img {
+            border-radius: 20px;
+        }
+        & .ratting-text {
+            & > span {
+                font-size: 20px;
+                line-height: 1.5;
+                &:first-child {
+                    font-weight: 600;
+                    font-size: 30px;
+                    line-height: 1.3;
+                    color: var(--oit-clr-black);
+                    font-family: var(--oit-ff-funnel);
+                }
+            }
+        }
+        &.item-style-2 {
+            padding-bottom: 0;
+        }
+        &.item-style-3 {
+            padding: 30px 45px 35px 50px;
+        }
+        &.item-overlay {
+            height: 100%;
+            object-fit: cover;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            &::after {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                background: rgba($color: #000000, $alpha: 0.7);
+            }
+        }
+    }
+    &-title {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.33;
+        @media #{$xxxl}{
+            font-size: 25px;
+        }
+        @media #{$xxl}{
+            font-size: 20px;
+        }
+    }
+    &-big-title {
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 1.2;
+        color: var(--oit-clr-white);
+        @media #{$xxl}{
+            font-size: 35px;
+        }
+    }
+    &-list {
+        & ul {
+            & li {
+                list-style-type: none;
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+                & span {
+                    position: relative;
+                    padding-left: 30px;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 1.5;
+                    color: rgba(255, 255, 255, 0.7);
+                    & svg {
+                        position: absolute;
+                        top: 2px;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    &-shape-1 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+    &-shape-2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: -1;
+    }
+    &-shape-3 {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+}
+
+
+/*----------------------------------------*/
+/* team css start here
+/*----------------------------------------*/
+.dg-team {
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+    }
+    &-author {
+        &-wrap {
+            padding: 8px 20px;
+            border-radius: 10px;
+            background-color: var(--oit-clr-white);
+        }
+        &-info {
+            & span {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.7;
+                color: rgba(13, 13, 13, 0.6);
+            }
+        }
+    }
+    &-title {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    &-social {
+        & a {
+            height: 38px;
+            width: 38px;
+            line-height: 34px;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            transition: .4s;
+            color: var(--oit-clr-black);
+            background-color: var(--oit-grey-1);
+            outline: 1px solid rgba(13, 13, 13, 0.08);
+            &:not(:last-child){
+                margin-right: 10px;
+                @media #{$xxl}{
+                    margin-right: 2px;
+                }
+            }
+            &:hover {
+                color: var(--oit-clr-white);
+                background-color: var(--oit-clr-black);
+            }
+        }
+    }
+    &-thumb {
+        overflow: hidden;
+        & img {
+            transition: 1.3s all ease;
+        }
+    }
+    &-shape {
+        position: absolute;
+        right: 7%;
+        top: -16%;
+        @media #{$xxl,$xl}{
+            transform: scale(.6);
+        }
+    }
+    &-btn{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 0;
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* step css start here
+/*----------------------------------------*/
+.dg-step {
+    &-area{
+        @media #{$lg,$md,$xs}{
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        &.about-style {
+            & .dg-step-item {
+                background-color: var(--oit-grey-1);
+            }
+        }
+    }
+    &-item {
+        border-radius: 10px;
+        padding: 25px 30px 30px;
+        background-color: var(--oit-clr-white);
+        & span {
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 125px;
+            text-transform: uppercase;
+        }
+        & p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.7;
+            letter-spacing: -0.8px;
+            margin-bottom: 0;
+            @media #{$xxl,$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-big-text {
+        position: absolute;
+        top: 1%;
+        right: 6%;
+        font-size: 150px;
+        color: transparent;
+        margin-bottom: 0;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        font-family: var(--oit-ff-funnel);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgba(0, 0, 0, 0.4);
+        @media #{$xxl}{
+            font-size: 80px;
+        }
+        @media #{$md,$xs}{
+            font-size: 60px;
+        }
+    }
+    &-title {
+        font-size: 30px;
+        margin-bottom: 25px;
+        letter-spacing: -0.01em;
+    }
+}
+
+
+/*----------------------------------------*/
+/* testimonial css start here
+/*----------------------------------------*/
+.dg-testimonial {
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+    &-item {
+        padding: 40px;
+        min-height: 550px;
+        border-radius: 10px;
+        background-color: var(--oit-clr-white);
+        @media #{$lg,$md,$xs}{
+            min-height: 500px;
+        }
+        & p {
+            &.text-large {
+                font-weight: 600;
+                font-size: 30px;
+                line-height: 1.3;
+                margin-right: 45px;
+                color: var(--oit-clr-black);
+                @media #{$xxxl}{
+                    font-size: 27px;
+                }
+                @media #{$lg,$md}{
+                    font-size: 20px;
+                }
+                @media #{$xs}{
+                    font-size: 20px;
+                    margin-right: 0;
+                }
+                &.large-style-2 {
+                    margin-right: 0;
+                    margin-top: 35px;
+                }
+            }
+            &.text-small {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 1.65;
+                @media #{$xs}{
+                    font-size: 15px;
+                }
+                & span {
+                    color: var(--oit-text-body);
+                }
+            }
+        }
+    }
+    &-authour {
+        &-title {
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+        &-info {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+    &-shape {
+        position: absolute;
+        top: 7%;
+        right: 6.5%;
+        z-index: -1;
+        @media #{$xxxl}{
+            right: -3%;
+            transform: scale(.5);
+        }
+        @media #{$xxl,$xl,$lg}{
+            right: -3%;
+            transform: scale(.5);
+        }
+        @media #{$lg}{
+            top: 0;
+            right: -3%;
+            transform: scale(.5);
+        }
+    }
+    &-active {
+        margin-right: -555px;
+        @media #{$xl,$lg,$md,$xs}{
+            margin-right: 0;
+        }
+    }
+}
+
+
+/*----------------------------------------*/
+/* contact css start here
+/*----------------------------------------*/
+.dg-contact{
+    &-area{
+        @media #{$xl,$lg,$md,$xs}{
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        &.faq-style {
+            & .dg-contact-info-wrap {
+                @media #{$lg,$md,$xs}{
+                    padding-bottom: 40px;
+                } 
+            }
+        }
+    }
+    &-info {
+        & span {
+            font-weight: 600;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 7px;
+            color: var(--oit-clr-white);
+            text-transform: uppercase;
+        }
+        & a {
+            line-height: 1.63;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        &-wrap {
+            max-width: 590px;
+            @media #{$xs}{
+                max-width: 100%;
+                flex-wrap: wrap;
+            }
+        }
+    }
+    &-social {
+        & a {
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--oit-clr-white);
+            display: inline-block;
+            &:not(:last-child){
+                margin-right: 40px;
+                @media #{$xs}{
+                    margin-right: 20px;
+                }
+            }
+            & svg {
+                height: 10px;
+                width: 10px;
+                margin-left: 3px;
+                display: inline-block;
+            }
+        }
+    }
+    &-form-box {
+        padding: 50px;
+        border-radius: 20px;
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        @media #{$xs}{
+            padding: 30px;
+        }
+        & label {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.44;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            color: var(--oit-clr-white);
+        }
+    }
+    &-input-box {
+        & input {
+            border: none;
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+            color: var(--oit-clr-white);
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            &::placeholder {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            &:focus{
+                border-color: var(--oit-clr-white);
+            }
+        }
+    }
+    &-textarea-box {
+        & label {
+            margin-bottom: 20px;
+        }
+        & textarea {
+            padding: 0;
+            height: 130px;
+            resize: none;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            &::placeholder {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            &:focus{
+                border-color: var(--oit-clr-white);
+                &::placeholder{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    &-select {
+        height: 50px;
+        line-height: 50px;
+        & .nice-select {
+            border: none;
+            padding: 0;
+            width: 100%;
+            font-size: 14px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 0;
+            background-color: transparent;            
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            & span.current {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            bottom: 0;
+            left: 16%;
+            @media #{$xxl}{
+                left: 0;
+            }
+            & img {
+                opacity: 0.3;
+            }
+        }
+    }
+    &-left{
+        @media #{$lg,$md,$xs}{
+            padding-top: 0;
+        }
+    }
+}

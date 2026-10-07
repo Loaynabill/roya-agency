@@ -1,0 +1,22 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.4 testimonial details css
+/*----------------------------------------*/
+
+.dg-testimonial-area {
+    &.service-style {
+        & .dg-testimonial-item {
+            min-height: auto;
+            transition: .3s;
+            &:hover {
+                background-color: #EEEEEE;
+            }
+        }
+        & .text-large {
+            margin-top: 110px;
+            @media #{$xl,$lg,$md,$xs}{
+                margin-top: 20px;
+            }
+        }
+    }
+}

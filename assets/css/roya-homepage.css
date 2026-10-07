@@ -1,0 +1,1150 @@
+/*
+ * roya-homepage.css
+ * Custom overrides for index_roya.html
+ * Fixes: typography scale, section spacing, section titles, visual consistency
+ */
+
+/* ============================================
+   DESIGN TOKENS / CSS VARIABLES
+   ============================================ */
+:root {
+    --roya-section-y: 110px;
+    --roya-section-y-md: 80px;
+    --roya-section-y-sm: 60px;
+    --roya-title-gap: 80px;
+}
+
+/* ============================================
+   BASE TYPOGRAPHY
+   ============================================ */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+/* Global Safeguard to prevent Horizontal Overflow on Mobile */
+body {
+    overflow-x: hidden;
+}
+
+#smooth-wrapper {
+    overflow-x: clip !important;
+    width: 100%;
+}
+
+p {
+    /* Fluid paragraph size: 16px to 20px max */
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.7;
+    margin-bottom: clamp(16px, 1.5vw, 24px);
+    color: inherit;
+    opacity: 0.8;
+    /* Elegant subtle contrast */
+}
+
+/* ============================================
+   FLUID TYPOGRAPHY — SECTION TITLES
+   ============================================ */
+
+/* Main Section Title (About, Services, Projects, Testimonials) */
+.oit-section-title {
+    /* Fluidly scales from 36px on mobile up to 80px on large displays */
+    font-size: clamp(36px, 5vw, 80px) !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+}
+
+/* .fsz-60 variant — content headings */
+.oit-section-title.fsz-60 {
+    font-size: clamp(32px, 4vw, 60px) !important;
+    line-height: 1.1 !important;
+}
+
+/* .fsz-120 variant — big metrics / funfact numbers */
+.oit-section-title.fsz-120 {
+    font-size: clamp(48px, 6vw, 100px) !important;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
+}
+
+/* ============================================
+   FUNFACTS & METRICS (dg-funfact)
+   ============================================ */
+.dg-funfact-title {
+    /* Fluid size for desktop to fit "AI-Powered" without breaking */
+    font-size: clamp(32px, 5vw, 80px) !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+}
+
+/* Force inner numbers and symbols to inherit the liquid scaling accurately */
+.dg-funfact-title i,
+.dg-funfact-title span {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+.dg-funfact-item {
+    gap: 15px;
+    /* Adds safe spacing between number and text */
+}
+
+@media (max-width: 767px) {
+    .dg-funfact-item {
+        /* Maintain horizontal layout, but adapt spacing */
+        align-items: center !important;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dg-funfact-title {
+        font-size: clamp(28px, 7vw, 40px) !important;
+    }
+
+    .dg-funfact-item p {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 0 !important;
+        text-align: right;
+        /* Balances the weight of the massive number on the left */
+    }
+}
+
+/* Suppress asymmetric left-padding on centered title boxes */
+.oit-section-title-box.pl-70 {
+    padding-left: 0 !important;
+}
+
+/* Unified bottom-gap below title boxes */
+.oit-section-title-box.mb-120 {
+    margin-bottom: var(--roya-title-gap) !important;
+}
+
+.oit-section-title-box.mb-90 {
+    margin-bottom: 64px !important;
+}
+
+/* ============================================
+   SECTION VERTICAL SPACING — unified
+   ============================================ */
+.st-hero-area {
+    padding-top: 180px;
+    padding-bottom: 120px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.oit-about-area {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.dg-funfact-area {
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+.oit-service-area {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.sd-project-area {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.dg-testimonial-area {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.dg-contact-area {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.oit-text-slider-area {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .st-hero-area,
+    .oit-about-area,
+    .dg-funfact-area,
+    .oit-service-area,
+    .sd-project-area,
+    .dg-testimonial-area,
+    .dg-contact-area {
+        padding-top: var(--roya-section-y-md);
+        padding-bottom: var(--roya-section-y-md);
+    }
+}
+
+@media (max-width: 767px) {
+
+    .st-hero-area,
+    .oit-about-area,
+    .dg-funfact-area,
+    .oit-service-area,
+    .sd-project-area,
+    .dg-testimonial-area,
+    .dg-contact-area {
+        padding-top: var(--roya-section-y-sm);
+        padding-bottom: var(--roya-section-y-sm);
+    }
+
+    .oit-text-slider-area {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ============================================
+   CINEMATIC HERO (06 — HERO SCROLL EXPERIENCE)
+   ============================================ */
+
+.cinematic-hero-area {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    background-color: #08090d;
+    color: #ffffff;
+    overflow: hidden;
+    padding-top: 150px;
+    padding-bottom: 90px;
+}
+
+/* Atmospheric Ambient Lights */
+.cinematic-ambient-lights {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.cinematic-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cinematic-orb-purple {
+    top: -120px;
+    left: 12%;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(125, 60, 255, 0.28) 0%, rgba(125, 60, 255, 0.05) 55%, transparent 75%);
+    filter: blur(80px);
+    animation: orbFloat1 20s infinite alternate ease-in-out;
+}
+
+.cinematic-orb-coral {
+    bottom: -80px;
+    right: 8%;
+    width: 620px;
+    height: 620px;
+    background: radial-gradient(circle, rgba(255, 95, 60, 0.2) 0%, rgba(255, 95, 60, 0.04) 55%, transparent 75%);
+    filter: blur(85px);
+    animation: orbFloat2 24s infinite alternate ease-in-out;
+}
+
+.cinematic-scanline-mesh {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.6;
+}
+
+@keyframes orbFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 40px) scale(1.08); }
+}
+
+@keyframes orbFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-45px, -35px) scale(1.06); }
+}
+
+/* Cinematic Visual Stage (Parallax & Scale Target) */
+.cinematic-visual-stage {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.cinematic-visual-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cinematic-img-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cinematic-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 32%;
+    transform-origin: center center;
+    filter: brightness(0.82) contrast(1.12);
+    will-change: transform;
+    transform: scale(1);
+    transition: filter 0.5s ease;
+}
+
+.cinematic-overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, transparent 25%, rgba(8, 9, 13, 0.65) 75%, #08090d 100%);
+    pointer-events: none;
+}
+
+.cinematic-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 9, 13, 0.75) 0%, rgba(8, 9, 13, 0.15) 30%, rgba(8, 9, 13, 0.3) 65%, #08090d 100%);
+    pointer-events: none;
+}
+
+/* Parallax Floating Depth Cards */
+.cinematic-parallax-card {
+    position: absolute;
+    z-index: 8;
+    pointer-events: auto;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(14, 16, 24, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    will-change: transform;
+}
+
+.cinematic-parallax-card:hover {
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cinematic-parallax-card.card-left {
+    left: 4.5%;
+    bottom: 22%;
+    padding: 18px 24px;
+}
+
+.card-icon-pill {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 95, 60, 0.15);
+    border: 1px solid rgba(255, 95, 60, 0.3);
+    color: #ff7a50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.card-data .card-metric {
+    font-family: var(--oit-ff-heading);
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.card-data .card-caption {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
+}
+
+.cinematic-parallax-card.card-right {
+    right: 4.5%;
+    top: 26%;
+    padding: 18px 24px;
+    min-width: 220px;
+}
+
+.card-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(120, 60, 240, 0.2);
+    border: 1px solid rgba(120, 60, 240, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #bfa1ff;
+    margin-bottom: 8px;
+}
+
+.chip-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f0a8;
+    box-shadow: 0 0 8px #00f0a8;
+    animation: pulseDot 2s infinite;
+}
+
+.card-metric-small {
+    font-family: var(--oit-ff-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.card-inner .card-caption {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+}
+
+.cinematic-parallax-meta {
+    position: absolute;
+    left: 4.5%;
+    top: 21%;
+    z-index: 7;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 7px 18px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    will-change: transform;
+}
+
+.meta-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff7a50;
+    margin-right: 6px;
+}
+
+.meta-sep {
+    opacity: 0.4;
+}
+
+/* Foreground Content Stage */
+.cinematic-content-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.cinematic-typography-stage {
+    position: relative;
+    width: 100%;
+    will-change: transform, opacity;
+}
+
+/* Eyebrow Bar */
+.cinematic-eyebrow-box {
+    margin-bottom: 24px;
+}
+
+.cinematic-agency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 18px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+}
+
+.badge-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00f0a8;
+    box-shadow: 0 0 10px #00f0a8;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.cinematic-season-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: monospace;
+}
+
+/* Master Editorial Headline */
+.cinematic-headline-wrap {
+    margin-bottom: 35px;
+}
+
+.cinematic-headline {
+    font-family: var(--oit-ff-heading);
+    font-size: clamp(44px, 7.8vw, 135px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.headline-row {
+    display: block;
+}
+
+.hl-outline {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.55);
+    color: transparent;
+    margin-right: clamp(10px, 1.8vw, 24px);
+    transition: -webkit-text-stroke-color 0.35s ease;
+}
+
+.hl-outline:hover {
+    -webkit-text-stroke-color: #ff7a50;
+}
+
+.hl-fill {
+    color: #ffffff;
+}
+
+.hl-gradient-text {
+    background: linear-gradient(135deg, #ffffff 15%, #ff7a50 55%, #a855f7 95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Lower Narrative & CTAs */
+.cinematic-lead-desc {
+    font-size: clamp(16px, 1.25vw, 19px);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 28px;
+    max-width: 520px;
+    font-weight: 400;
+}
+
+.cinematic-primary-btn {
+    backdrop-filter: blur(12px);
+    background: rgba(18, 20, 30, 0.85) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    padding: 16px 28px !important;
+    border-radius: 100px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cinematic-primary-btn:hover {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.cinematic-reel-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 22px 8px 10px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-reel-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.reel-pulse-wrap {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff7a50, #9b51e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.reel-play-symbol {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-left: 2px;
+}
+
+.reel-pulse-wave {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 122, 80, 0.6);
+    animation: ripplePulse 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes ripplePulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.reel-heading {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.reel-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Pillars Matrix */
+.cinematic-pillars-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.pillar-box {
+    padding: 16px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    min-width: 145px;
+    flex: 1 1 140px;
+    transition: all 0.35s ease;
+}
+
+.pillar-box:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.pillar-index {
+    font-size: 11px;
+    font-weight: 800;
+    color: #ff7a50;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+}
+
+.pillar-title {
+    font-family: var(--oit-ff-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.pillar-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 3px;
+}
+
+/* Scroll Dial */
+.cinematic-scroll-dial {
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    z-index: 12;
+    width: 105px;
+    height: 105px;
+    will-change: transform, opacity;
+}
+
+.cinematic-dial-anchor {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.dial-spin-ring {
+    position: absolute;
+    inset: 0;
+    animation: spinInfinite 20s linear infinite;
+}
+
+.dial-img-spin {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+
+.dial-arrow-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    animation: bounceIndicator 2s infinite ease-in-out;
+}
+
+@keyframes spinInfinite {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounceIndicator {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -40%); }
+}
+
+/* Responsive Media Queries for Hero */
+@media (max-width: 1399px) {
+    .cinematic-headline {
+        font-size: clamp(40px, 7.5vw, 110px);
+    }
+    .cinematic-parallax-card.card-left {
+        left: 2%;
+        bottom: 18%;
+    }
+    .cinematic-parallax-card.card-right {
+        right: 2%;
+        top: 24%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .cinematic-hero-area {
+        padding-top: 130px;
+        padding-bottom: 70px;
+    }
+    .cinematic-parallax-card {
+        padding: 14px 18px;
+    }
+    .cinematic-parallax-card.card-left {
+        bottom: 14%;
+    }
+    .cinematic-parallax-card.card-right {
+        top: 20%;
+    }
+    .cinematic-scroll-dial {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .cinematic-parallax-card {
+        display: none; /* Hide floating cards on tablet/mobile to keep viewport clear */
+    }
+    .cinematic-headline {
+        font-size: clamp(38px, 9vw, 80px);
+        margin-bottom: 25px;
+    }
+    .cinematic-pillars-grid {
+        justify-content: flex-start !important;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cinematic-hero-area {
+        padding-top: 115px;
+        padding-bottom: 60px;
+    }
+    .cinematic-headline {
+        font-size: clamp(34px, 10vw, 56px);
+        line-height: 1.05;
+    }
+    .hl-outline {
+        display: block;
+        margin-right: 0;
+    }
+    .cinematic-lead-desc {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    .cinematic-button-row {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    .cinematic-primary-btn, .cinematic-reel-pill {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.oit-about-area .oit-about-text p {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #111;
+    letter-spacing: -0.01em;
+}
+
+.oit-about-area .oit-about-content p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #666;
+}
+
+/* ============================================
+   FUNFACT / METRICS
+   ============================================ */
+.dg-funfact-area .dg-funfact-title {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1399px) {
+    .dg-funfact-area .dg-funfact-title {
+        font-size: 44px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .dg-funfact-area .dg-funfact-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .dg-funfact-area .dg-funfact-title {
+        font-size: 32px;
+    }
+
+    .dg-funfact-area .dg-funfact-item p {
+        text-align: left;
+        max-width: 100%;
+    }
+}
+
+.dg-funfact-area .dg-funfact-item p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #777;
+    margin-bottom: 0;
+    max-width: 180px;
+    text-align: right;
+}
+
+.dg-funfact-area .oit-section-title-box>p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ============================================
+   SERVICES SECTION (dark background)
+   ============================================ */
+.oit-service-area .oit-service-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1399px) {
+    .oit-service-area .oit-service-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 991px) {
+    .oit-service-area .oit-service-title {
+        font-size: 22px;
+    }
+}
+
+.oit-service-area .oit-service-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: inherit;
+    opacity: 0.85;
+}
+
+/* ============================================
+   BRANDS / CLIENTS LOGOS
+   ============================================ */
+.brand-area.brand-style-2 {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+/* Normalize uneven Bootstrap utility padding on the dark brand strip */
+.black-bg.px-5 {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+@media (max-width: 767px) {
+    .black-bg.px-5 {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* ============================================
+   INTEGRATIONS SECTION
+   ============================================ */
+.integration-info-card h4 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 991px) {
+    .integration-info-card h4 {
+        font-size: 24px;
+    }
+}
+
+.integration-info-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.dg-contact-area .dg-contact-left {
+    padding-top: 0 !important;
+}
+
+.dg-contact-area .oit-section-title {
+    font-size: 52px !important;
+    margin-bottom: 28px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .dg-contact-area .oit-section-title {
+        font-size: 42px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .dg-contact-area .oit-section-title {
+        font-size: 36px !important;
+    }
+}
+
+.dg-contact-info span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.dg-contact-info a {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+}
+
+.dg-contact-input-box {
+    margin-bottom: 40px !important;
+}
+
+.dg-contact-textarea-box {
+    margin-bottom: 40px !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.oit-footer-2-area {
+    padding-top: 100px !important;
+    padding-bottom: 30px !important;
+}
+
+.oit-footer-2-widget p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.oit-footer-2-widget-menu ul li a {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.2s;
+}
+
+.oit-footer-2-widget-menu ul li a:hover {
+    color: #fff;
+}
+
+.oit-footer-2-widget-menu ul li {
+    padding: 4px 0;
+}
+
+.oit-copyright-area p,
+.oit-copyright-left p,
+.oit-copyright-right a {
+    font-size: 13px;
+}
+
+@media (max-width: 767px) {
+    .oit-footer-2-widget.footer-widget-2-1 {
+        padding-bottom: 40px !important;
+    }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.oit-header-area {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.oit-menu-content ul li a {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   TEXT SLIDER / CTA BANNER
+   ============================================ */
+.oit-text-slider-item span {
+    font-size: clamp(28px, 5vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.oit-text-slider-btn {
+    margin-bottom: 40px;
+}
+
+/* Between services and brands — reduce double padding */
+.fix.pt-120.black-bg {
+    padding-top: 60px !important;
+}
+
+/* ============================================
+   RESPONSIVE UTILITY
+   ============================================ */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .dg-funfact-area .dg-funfact-right {
+        margin-top: 40px;
+    }
+
+    .integration-info-card {
+        margin-top: 40px;
+    }
+
+    .oit-about-thumb {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}
+
+/* ============================================
+   PERFORMANCE & SCROLL SMOOTHING FIXES
+   Prevent Layout Shifts (Jankiness) during loading
+   ============================================ */
+
+.sd-project-thumbnail {
+    aspect-ratio: 4/3;
+
+    position: relative;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.sd-project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   HEADER MENU HOVER EFFECT
+   ============================================ */
+.oit-menu-content ul li a {
+    position: relative;
+    display: inline-block;
+}
+
+.oit-menu-content ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    /* Matches the text automatically */
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 2px;
+}
+
+.oit-menu-content ul li a:hover::after {
+    width: 100%;
+}
