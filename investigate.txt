@@ -1,0 +1,410 @@
+                                                creativity meets strategy and results drive everything.
+                                            </p>
+                                        </div>
+                                        <div class="oit-about-content mb-50">
+                                            <div class="fade-anim" data-delay=".3">
+                                                <p>
+                                                    At Roya, we combine creative expertise with advanced AI technology
+                                                    to deliver innovative marketing solutions that empower our clients
+                                                    to grow and lead in their industries. We transform ideas into brands
+                                                    that leave a memorable impact.
+                                                </p>
+                                            </div>
+                                            <div class="fade-anim" data-delay=".5">
+                                                <a class="oit-btn-border btn-black-bg d-inline-flex align-items-center justify-content-between"
+                                                    href="about-v3.html">
+                                                    <span>
+                                                        <span class="text-1">more about us</span>
+                                                        <span class="text-2">more about us</span>
+                                                    </span>
+                                                    <i>
+                                                        <span>
+                                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                                    fill="currentcolor" />
+                                                            </svg>
+                                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                                    fill="currentcolor" />
+                                                            </svg>
+                                                        </span>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="sd-about-mission-wrap fade-anim" data-delay=".7">
+                                            <ul class="nav nav-tab" id="myTab" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-links active" id="home-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#home-tab-pane" type="button" role="tab"
+                                                        aria-controls="home-tab-pane" aria-selected="true">Strategy
+                                                        First</button>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-links" id="profile-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                                        aria-controls="profile-tab-pane"
+                                                        aria-selected="false">Creativity</button>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-links" id="contact-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                                        aria-controls="contact-tab-pane" aria-selected="false">Real
+                                                        Results</button>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="home-tab-pane"
+                                                    role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                                    <p>
+                                                        website template crafted.<br>
+                                                        We create smart, data-driven strategies that turn your brand<br>
+                                                        vision into tangible reality.
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                                                    aria-labelledby="profile-tab" tabindex="0">
+                                                    <p>
+
+
+                                                        We don't settle for traditional campaigns;<br> we leverage the
+                                                        latest marketing and AI tools to craft unique visual experiences
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
+                                                    aria-labelledby="contact-tab" tabindex="0">
+                                                    <p>
+                                                        We focus on performance and measurable revenue,<br> ensuring
+                                                        your
+                                                        brand stands out and performs globally.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- about area end -->
+
+                <!-- funfact area start -->
+                <div class="dg-funfact-area dg-funfact-style p-relative" data-bg-color="#ffffff"
+                    style="padding: 100px 0 150px; overflow: visible;">
+                    <div class="container p-relative">
+                        <div class="row">
+
+                            <!-- Left Sticky Content -->
+                            <div class="col-xl-5">
+                                <div class="sticky-left-content"
+                                    style="z-index: 5; height: max-content; padding-bottom: 50px; padding-top: 20px;">
+                                    <div class="oit-section-title-box">
+                                        <span class="oit-section-subtitle mb-10"
+                                            style="color: #ff4632; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Our
+                                            Impact</span>
+                                        <h3 class="oit-section-title fsz-120 mb-25" style="line-height: 1.1;">Metrics
+                                            that<br>prove value</h3>
+                                        <div>
+                                            <p class="mb-30" style="font-size: 18px; color: #555; max-width: 90%;">
+                                                Drove significant client revenue through data-driven performance
+                                                marketing
+                                                and strategic campaigns across multiple markets.
+                                            </p>
+                                        </div>
+                                        <div class="mt-20">
+                                            <a class="oit-btn-border btn-black-bg d-inline-flex align-items-center justify-content-between"
+                                                href="project-v2.html">
+                                                <span>
+                                                    <span class="text-1">View All Projects</span>
+                                                    <span class="text-2">View All Projects</span>
+                                                </span>
+                                                <i>
+                                                    <span>
+                                                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                                fill="currentcolor" />
+                                                        </svg>
+                                                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                                fill="currentcolor" />
+                                                        </svg>
+                                                    </span>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Scrolling Massive Typography -->
+                            <div class="offset-xl-1 col-xl-6">
+                                <div class="huge-stats-wrapper"
+                                    style="padding-top: 5vh; padding-bottom: 5vh; display: flex; flex-direction: column; gap: 150px;">
+
+                                    <!-- Stat 1 -->
+                                    <div class="huge-stat-item"
+                                        style="opacity: 0.2; transition: opacity 0.5s ease; will-change: opacity;">
+                                        <h4 class="huge-stat-num"
+                                            style="font-size: clamp(80px, 12vw, 180px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px #101216; line-height: 1; letter-spacing: -3px; margin: 0; transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;">
+                                            <span class="purecounter" data-purecounter-duration="1"
+                                                data-purecounter-end="5">0</span><span
+                                                style="font-size: 0.8em;">+</span>
+                                        </h4>
+                                        <p
+                                            style="font-size: 24px; font-weight: 500; color: #101216; margin-top: 20px; line-height: 1.4; max-width: 400px;">
+                                            Countries where successful projects have been delivered</p>
+                                    </div>
+
+                                    <!-- Stat 2 -->
+                                    <div class="huge-stat-item"
+                                        style="opacity: 0.2; transition: opacity 0.5s ease; will-change: opacity;">
+                                        <h4 class="huge-stat-num"
+                                            style="font-size: clamp(80px, 12vw, 180px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px #101216; line-height: 1; letter-spacing: -3px; margin: 0; transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;">
+                                            <span class="purecounter" data-purecounter-duration="1"
+                                                data-purecounter-end="99">0</span><span
+                                                style="font-size: 0.8em;">%</span>
+                                        </h4>
+                                        <p
+                                            style="font-size: 24px; font-weight: 500; color: #101216; margin-top: 20px; line-height: 1.4; max-width: 400px;">
+                                            Average client satisfaction and repeat collaboration</p>
+                                    </div>
+
+                                    <!-- Stat 3 -->
+                                    <div class="huge-stat-item"
+                                        style="opacity: 0.2; transition: opacity 0.5s ease; will-change: opacity;">
+                                        <h4 class="huge-stat-num"
+                                            style="font-size: clamp(80px, 12vw, 180px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px #101216; line-height: 1; letter-spacing: -3px; margin: 0; transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;">
+                                            <span class="purecounter" data-purecounter-duration="1"
+                                                data-purecounter-end="90">0</span><span
+                                                style="font-size: 0.8em;">Â°</span>
+                                        </h4>
+                                        <p
+                                            style="font-size: 24px; font-weight: 500; color: #101216; margin-top: 20px; line-height: 1.4; max-width: 400px;">
+                                            Integrated marketing solutions tailored for business growth</p>
+                                    </div>
+
+                                    <!-- Stat 4 -->
+                                    <div class="huge-stat-item"
+                                        style="opacity: 0.2; transition: opacity 0.5s ease; will-change: opacity;">
+                                        <h4 class="huge-stat-num"
+                                            style="font-size: clamp(50px, 8vw, 110px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px #101216; line-height: 1.1; letter-spacing: -2px; margin: 0; transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;">
+                                            AI-Powered
+                                        </h4>
+                                        <p
+                                            style="font-size: 24px; font-weight: 500; color: #101216; margin-top: 20px; line-height: 1.4; max-width: 400px;">
+                                            Latest marketing and AI tools applied to drive results</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GSAP Logic for Sticky & Massive Typography -->
+                </div>
+                <!-- funfact area end -->
+
+
+                <!-- service area start -->
+                <div id="services" class="oit-service-area p-relative" data-bg-color="#000">
+
+                    <div class="roya-accordion-section container-fluid px-xl-5">
+                        <div class="row">
+                            <div class="offset-xl-1 col-xl-10">
+                                <div class="oit-section-title-box mb-80 text-center text-xl-start">
+                                    <h3 class="oit-section-title oit-text-white oit-title-revel text-center">Our
+                                        Services</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="roya-accordion-container">
+                            <!-- Service 1 -->
+                            <div class="roya-accordion-item" tabindex="0">
+                                <img src="assets/img/service4.jpg" alt="Branding" class="roya-acc-bg" loading="lazy">
+                                <div class="roya-acc-closed-title">
+                                    <h4>Branding & Identity</h4>
+                                </div>
+                                <div class="roya-acc-overlay">
+                                    <h3 class="roya-acc-title">Branding & Identity Design</h3>
+                                    <p class="roya-acc-desc">Comprehensive end-to-end branding solutions designed to
+                                        build memorable brand identities that inspire and connect with your audience.
+                                    </p>
+                                    <div class="roya-acc-tags">
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Creative Direction</span>
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Logo Design</span>
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Branding Strategy</span>
+                                    </div>
+                                    <div class="roya-acc-btn">
+                                        <a href="service-details.html">Explore Service <svg width="14" height="14"
+                                                viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.25 0H0V1.833H6.417V11.158L2.796 7.537L1.5 8.833L7.333 14.667L13.167 8.833L11.871 7.537L8.25 11.158V0Z"
+                                                    fill="currentcolor" />
+                                            </svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 2 -->
+                            <div class="roya-accordion-item" tabindex="0">
+                                <img src="assets/img/service3 (1).jpg" alt="Web Dev" class="roya-acc-bg" loading="lazy">
+                                <div class="roya-acc-closed-title">
+                                    <h4>Web Development</h4>
+                                </div>
+                                <div class="roya-acc-overlay">
+                                    <h3 class="roya-acc-title">Web Development</h3>
+                                    <p class="roya-acc-desc">From brand strategy to immersive digital experiences, we
+                                        offer end-to-end creative solutions...</p>
+                                    <div class="roya-acc-tags">
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Style guide</span>
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Visual storytelling</span>
+                                    </div>
+                                    <div class="roya-acc-btn">
+                                        <a href="service-details.html">Explore Service <svg width="14" height="14"
+                                                viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.25 0H0V1.833H6.417V11.158L2.796 7.537L1.5 8.833L7.333 14.667L13.167 8.833L11.871 7.537L8.25 11.158V0Z"
+                                                    fill="currentcolor" />
+                                            </svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 3 -->
+                            <div class="roya-accordion-item" tabindex="0">
+                                <img src="assets/img/service1 (1).jpg" alt="SEO" class="roya-acc-bg" loading="lazy">
+                                <div class="roya-acc-closed-title">
+                                    <h4>SEO</h4>
+                                </div>
+                                <div class="roya-acc-overlay">
+                                    <h3 class="roya-acc-title">Search Engine Optimization</h3>
+                                    <p class="roya-acc-desc">From brand strategy to immersive digital experiences, we
+                                        offer end-to-end creative solutions...</p>
+                                    <div class="roya-acc-tags">
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Keyword Research</span>
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Technical SEO</span>
+                                    </div>
+                                    <div class="roya-acc-btn">
+                                        <a href="service-details.html">Explore Service <svg width="14" height="14"
+                                                viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.25 0H0V1.833H6.417V11.158L2.796 7.537L1.5 8.833L7.333 14.667L13.167 8.833L11.871 7.537L8.25 11.158V0Z"
+                                                    fill="currentcolor" />
+                                            </svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 4 -->
+                            <div class="roya-accordion-item" tabindex="0">
+                                <img src="assets/img/service2 (1).jpg" alt="Brand Identity" class="roya-acc-bg"
+                                    loading="lazy">
+                                <div class="roya-acc-closed-title">
+                                    <h4>Brand Identity</h4>
+                                </div>
+                                <div class="roya-acc-overlay">
+                                    <h3 class="roya-acc-title">Brand Identity Design</h3>
+                                    <p class="roya-acc-desc">From brand strategy to immersive digital experiences, we
+                                        offer end-to-end creative solutions...</p>
+                                    <div class="roya-acc-tags">
+                                        <span class="roya-acc-tag"><svg width="14" height="14" viewBox="0 0 20 24"
+                                                fill="currentcolor">
+                                                <path
+                                                    d="M10 0C9.554 11.0256 9.187 11.4648 0 12C9.188 12.5352 9.554 12.9756 10 24C10.446 12.9744 10.813 12.5352 20 12C10.812 11.4648 10.446 11.0244 10 0Z" />
+                                            </svg> Color & typography</span>
+                                    </div>
+                                    <div class="roya-acc-btn">
+                                        <a href="service-details.html">Explore Service <svg width="14" height="14"
+                                                viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.25 0H0V1.833H6.417V11.158L2.796 7.537L1.5 8.833L7.333 14.667L13.167 8.833L11.871 7.537L8.25 11.158V0Z"
+                                                    fill="currentcolor" />
+                                            </svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="service-btn text-center mt-60">
+                                    <a class="oit-btn-border btn-white-bg d-inline-flex align-items-center justify-content-between"
+                                        href="contact-v1.html">
+                                        <span>
+                                            <span class="text-1">Book A Quick Call</span>
+                                            <span class="text-2">Book A Quick Call</span>
+                                        </span>
+                                        <i>
+                                            <span>
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                        fill="currentcolor" />
+                                                </svg>
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.4801 6.10132e-06L12.4381 0.99062L12.3305 1.09859C9.55759 4.01224 9.66053 7.97757 11.492 9.87138L10.5199 10.8562C9.01152 9.29621 8.47367 6.87412 9.01459 4.46212L0.955362 12.6371L-0.000299374 11.6476L8.06131 3.46911C5.69918 4.00199 3.33666 3.42959 1.82692 1.86845L2.799 0.882416C4.65351 2.80007 8.59851 2.92281 11.4801 6.10132e-06Z"
+                                                        fill="currentcolor" />
+                                                </svg>
+                                            </span>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fix black-bg">
+                    <div class="oit-text-slider-item d-flex align-items-center slide-ltr">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                        <img src="assets/img/shape/line-shape-1.png" alt="" loading="lazy">
+                    </div>
+                </div>
+                <div class="black-bg">
+
+                    <div class="roya-marquee-area">
+                        <!-- Marquee Row 1 (Left Scrolling) -->
+                        <div class="roya-marquee-container mb-4">

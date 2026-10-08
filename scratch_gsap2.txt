@@ -1,0 +1,35 @@
+                                    ScrollTrigger.create({
+                                        trigger: stat,
+                                        start: "top 65%",
+                                        end: "bottom 35%",
+                                        toggleClass: "is-active"
+                                    });
+                                });
+
+                                /* Re-add Pin left content with correct trigger start to ensure visibility from the top */
+                                ScrollTrigger.matchMedia({
+                                    "(min-width: 1200px)": function () {
+                                        let stickContent = document.querySelector(".sticky-left-content");
+                                        let wrapContent = document.querySelector(".huge-stats-wrapper");
+                                        if (stickContent && wrapContent) {
+                                            let distance = wrapContent.offsetHeight - stickContent.offsetHeight;
+                                            if (distance > 0) {
+                                                gsap.to(stickContent, {
+                                                    y: distance,
+                                                    ease: "none",
+                                                    scrollTrigger: {
+                                                        trigger: wrapContent,
+                                                        start: "top top+=15%",
+                                                        end: () => "+=" + distance,
+                                                        scrub: true
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        });
+
+
+

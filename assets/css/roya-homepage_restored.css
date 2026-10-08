@@ -2236,3 +2236,569 @@ p {
     z-index: 2;
 }
 
+
+/* --- Roya Premium Info Card --- */
+.roya-info-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.roya-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+.roya-info-badge {
+    display: inline-block;
+    background: rgba(255, 70, 50, 0.1);
+    color: #ff4632;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+.roya-info-card h4 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #101216;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.roya-info-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.roya-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 45px 0;
+}
+
+.roya-info-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #101216;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.roya-info-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.roya-info-list li > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #ff4632;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 70, 50, 0.3);
+}
+
+.roya-info-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 22px 30px;
+    background: #101216;
+    color: #ffffff !important;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+}
+
+.roya-info-card-btn svg {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roya-info-card-btn svg path {
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+}
+
+.roya-info-card-btn:hover {
+    background: #ff4632;
+    box-shadow: 0 15px 30px rgba(255, 70, 50, 0.25);
+    transform: translateY(-3px);
+}
+
+.roya-info-card-btn:hover svg {
+    transform: translate(5px, -5px);
+}
+
+@media (max-width: 1199px) {
+    .roya-info-card h4 { font-size: 34px; }
+    .roya-info-card { padding: 40px 30px; }
+}
+
+@media (max-width: 991px) {
+    .roya-info-card h4 { font-size: 32px; }
+}
+
+@media (max-width: 767px) {
+    .roya-info-card h4 { font-size: 28px; }
+    .roya-info-card p { font-size: 16px; }
+    .roya-info-card { padding: 35px 25px; }
+}
+
+/* --- Roya Horizontal Projects Section --- */
+.roya-horizontal-projects-section {
+    position: relative;
+    background-color: #f5f5f5;
+    padding-bottom: 50px;
+}
+
+.roya-horizontal-projects-pin {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-left: max(10vw, calc((100vw - 1200px) / 2));
+}
+
+.roya-horizontal-projects-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 150px;
+    width: max-content;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.roya-proj-item {
+    width: 60vw;
+    max-width: 800px;
+    flex-shrink: 0;
+    position: relative;
+    transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+/* Hovering any item: blur siblings */
+.roya-horizontal-projects-track:hover .roya-proj-item:not(:hover) {
+    filter: blur(12px) grayscale(60%);
+    opacity: 0.4;
+}
+
+.roya-proj-link {
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    overflow: visible;
+    text-decoration: none !important;
+    cursor: none !important;
+}
+
+.roya-proj-link * {
+    cursor: none !important;
+}
+
+.roya-proj-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.roya-proj-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roya-proj-link:hover .roya-proj-img {
+    transform: scale(0.97);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.roya-proj-link:hover .roya-proj-img img {
+    transform: scale(1.08);
+}
+
+.roya-proj-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.roya-proj-link:hover .roya-proj-overlay {
+    opacity: 1;
+}
+
+.roya-proj-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 10px;
+    opacity: 0.8;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(10px);
+}
+
+.roya-proj-link:hover .roya-proj-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.roya-proj-info h4 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #101216;
+    margin: 0;
+    position: relative;
+}
+
+.roya-proj-info span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: #ff4632;
+    padding: 6px 16px;
+    border-radius: 30px;
+}
+
+/* Progress Bar */
+.roya-progress-bar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+.roya-progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    height: 100%;
+    width: 100%;
+    background: #ff4632;
+    will-change: transform;
+}
+
+/* Custom Cursor */
+.roya-custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: #ff4632;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 999999;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roya-custom-cursor.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 10px 40px rgba(255, 70, 50, 0.4);
+}
+
+@media (max-width: 991px) {
+    .roya-proj-item { width: 80vw; }
+    .roya-custom-cursor { display: none !important; }
+}
+
+.roya-progress-bar-fill {
+    left: 0 !important;
+    width: 100% !important;
+    transform: scaleX(0) !important;
+    transform-origin: center center !important;
+}
+
+.roya-progress-bar-container .roya-progress-bar-fill {
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: center center;
+}
+
+
+/* --- Patch for Projects Section Fix --- */
+
+/* Force section to be exactly window height so nothing overflows */
+.roya-horizontal-projects-section {
+    height: 100vh !important;
+    min-height: 700px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding-bottom: 40px !important;
+    padding-top: 30px !important;
+    box-sizing: border-box !important;
+}
+
+/* Reduce top spacing for the title */
+.roya-horizontal-projects-section > .container:first-child .pt-60 {
+    padding-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+.roya-horizontal-projects-section .oit-section-title-box {
+    margin-bottom: 10px !important;
+}
+
+/* Inner pin wrapper */
+.roya-horizontal-projects-pin {
+    height: auto !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 60px; /* make room for progress bar */
+}
+
+/* Move progress bar completely below the cards */
+.roya-progress-bar-container {
+    top: auto !important;
+    bottom: 0px !important;
+    transform: translateX(-50%) !important;
+    width: 60vw !important;
+}
+
+/* Bigger cursor */
+.roya-custom-cursor {
+    width: 160px !important;
+    height: 160px !important;
+    font-size: 22px !important;
+}
+
+/* Reduce spacing for bottom button */
+.roya-horizontal-projects-section > .container:last-child .mt-90 {
+    margin-top: 20px !important;
+}
+
+
+/* --- Patch for Info Inside Card & Bigger Cursor --- */
+
+/* Move info inside the card and animate opacity */
+.roya-proj-info {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 40px !important;
+    right: 40px !important;
+    margin-top: 0 !important;
+    opacity: 0 !important; /* Hidden initially */
+    transform: translateY(30px) !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+}
+
+/* Ensure title is white to be visible over image */
+.roya-proj-info h4 {
+    color: #ffffff !important;
+    font-size: 42px !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+}
+
+/* On hover, fade and slide up the text */
+.roya-proj-link:hover .roya-proj-info {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0.1s !important;
+}
+
+/* Strengthen the overlay to make text readable */
+.roya-proj-overlay {
+    height: 100% !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 60%) !important;
+}
+
+/* Move scaling to the link itself so the absolute text scales with the image */
+.roya-proj-link {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.roya-proj-link:hover {
+    transform: scale(0.97) !important;
+}
+.roya-proj-link:hover .roya-proj-img {
+    transform: none !important; /* Disable double scaling */
+}
+
+/* Massive Cursor */
+.roya-custom-cursor {
+    width: 220px !important;
+    height: 220px !important;
+    font-size: 28px !important;
+}
+
+
+/* --- Patch 3: Restore generous spacing and pin ONLY the track wrapper --- */
+
+/* Allow natural height and add lots of space around the section */
+.roya-horizontal-projects-section {
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: 120px !important;
+    padding-bottom: 150px !important;
+    display: block !important; /* Revert flex */
+}
+
+/* Lots of space below the main title */
+.roya-horizontal-projects-section .oit-section-title-box {
+    margin-bottom: 100px !important;
+}
+
+/* Force the pinned area to exactly fit the screen so cards are perfectly centered */
+.roya-horizontal-projects-pin {
+    height: 100vh !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 0 !important;
+}
+
+/* Ensure progress bar is clearly below the cards but within view */
+.roya-progress-bar-container {
+    bottom: 10vh !important;
+}
+
+/* Add lots of space above the View All button */
+.roya-horizontal-projects-section > .container:last-child {
+    margin-top: 120px !important;
+}
+
+
+
+/* Ensure NO clipping vertically */
+.roya-horizontal-projects-pin {
+    height: 100vh !important;
+    overflow: visible !important;
+}
+
+.roya-horizontal-projects-track {
+    overflow: visible !important;
+}
+
+.roya-proj-item {
+    overflow: visible !important;
+}
+
+
+/* --- Patch 4: Fix horizontal cropping (Eaten edges) --- */
+
+/* Remove padding from the pin container so it touches the left edge of screen */
+.roya-horizontal-projects-pin {
+    padding-left: 0 !important;
+}
+
+/* Apply the initial offset to the first card instead, or the track itself using padding */
+.roya-horizontal-projects-track {
+    padding-left: max(10vw, calc((100vw - 1200px) / 2)) !important;
+    padding-right: max(10vw, calc((100vw - 1200px) / 2)) !important;
+}
+
+
+
+/* --- Patch 5: Ultimate Layout Fix for Short Screens --- */
+
+/* Reset section to be completely natural, no fixed height */
+.roya-horizontal-projects-section {
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: 100px !important;
+    padding-bottom: 80px !important;
+    display: block !important;
+}
+
+.roya-horizontal-projects-section .oit-section-title-box {
+    margin-bottom: 60px !important;
+}
+
+/* The element being pinned. It no longer needs to be 100vh! 
+   We just give it some padding, and GSAP center-centers it. */
+.roya-horizontal-projects-pin {
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 80px !important; /* space for progress bar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Adjust card size so no cropping occurs on laptops */
+.roya-horizontal-projects-track {
+    align-items: center;
+}
+.roya-proj-item {
+    width: 50vw !important; /* Makes it smaller, fits on any screen */
+    max-width: 700px !important;
+}
+
+/* Progress bar alignment */
+.roya-progress-bar-container {
+    bottom: 0px !important;
+}
+
+/* Bottom button margin */
+.roya-horizontal-projects-section > .container:last-child {
+    margin-top: 60px !important;
+}
+
+
+/* --- Patch 6: Reduce gap between projects --- */
+.roya-horizontal-projects-track {
+    gap: 60px !important;
+}

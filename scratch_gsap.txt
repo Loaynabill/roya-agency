@@ -1,0 +1,112 @@
+--- script.js 270-320 ---
+						y: 0,
+						rotate: 0,
+						scale: 1,
+					},
+					{
+						yPercent: 5,
+						rotate: 20,
+						scale: 0.75,
+						ease: 'none',
+						scrollTrigger: {
+							trigger: section,
+							pin: section,
+							scrub: 1,
+							start: startVal,
+							end: endVal,
+							endTrigger: '.oit-panel-pin-area',
+							pinSpacing: false,
+							markers: false,
+						},
+					}
+				)
+			})
+		})
+
+		/* ========== simple panel pin ========== */
+		mm.add("(min-width: 1199px)", () => {
+			let otherSections = document.querySelectorAll('.simple-panel-pin')
+			otherSections.forEach((section, index) => {
+				tl.to(section, {
+					scrollTrigger: {
+						trigger: section,
+						pin: section,
+						scrub: 1,
+						start: 'top 10%',
+						end: "bottom 100%",
+						endTrigger: '.panel-pin-area',
+						pinSpacing: false,
+						markers: false,
+					},
+				})
+			})
+		});
+
+
+		/* ========== image revel hover item ========== */
+		let imageWrapperElement = document.querySelector(".oit-img-wrap");
+		let imageSliderElement = document.querySelector(".oit-img-inner-wrap");
+		let projectElements = gsap.utils.toArray(".oit-team-inner-wrap");
+		if (imageWrapperElement && imageSliderElement && projectElements.length) {
+			let totalProjects = imageSliderElement.children.length;
+--- custom-roya.js 370-430 ---
+                                        // Added extra 100px padding so the last card is completely visible
+                                        const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 100);
+
+                                        gsap.to(track, {
+                                            x: getScrollAmount,
+                                            ease: "none",
+                                            scrollTrigger: {
+                                                trigger: section.querySelector('.roya-horizontal-projects-pin'),
+                                                start: "center center",
+                                                end: () => `+=${track.scrollWidth}`,
+                                                pin: true,
+                                                animation: true,
+                                                scrub: 1.5,
+                                                invalidateOnRefresh: true
+                                            }
+                                        });
+                                    }, 150);
+                                }
+                            }
+                        });
+                    
+
+// Refresh ScrollTrigger when images load to fix scroll sticking
+if (typeof imagesLoaded !== "undefined") {
+    imagesLoaded(document.body, function() {
+        if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+        }
+    });
+} else {
+    window.addEventListener("load", function() {
+        if (typeof ScrollTrigger !== "undefined") {
+            setTimeout(() => ScrollTrigger.refresh(), 500);
+        }
+    });
+}
+
+
+/* --- Moved from HTML --- */
+                        window.addEventListener("load", () => {
+                            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                                gsap.registerPlugin(ScrollTrigger);
+
+                                const stats = gsap.utils.toArray('.huge-stat-item');
+                                stats.forEach(stat => {
+                                    ScrollTrigger.create({
+                                        trigger: stat,
+                                        start: "top 65%",
+                                        end: "bottom 35%",
+                                        toggleClass: "is-active"
+                                    });
+                                });
+
+                                /* Re-add Pin left content with correct trigger start to ensure visibility from the top */
+                                ScrollTrigger.matchMedia({
+                                    "(min-width: 1200px)": function () {
+                                        let stickContent = document.querySelector(".sticky-left-content");
+                                        let wrapContent = document.querySelector(".huge-stats-wrapper");
+                                        if (stickContent && wrapContent) {
+                                            let distance = wrapContent.offsetHeight - stickContent.offsetHeight;

@@ -163,12 +163,7 @@
 	if ($('#smooth-wrapper, #smooth-content').length === 2) {
 		gsap.config({ nullTargetWarn: false });
 
-		ScrollSmoother.create({
-			smooth: 1.2,
-			effects: true,
-			smoothTouch: false,      /* Let mobile use native momentum scroll */
-			normalizeScroll: false   /* DISABLES scroll hijacking (cures earthquake jitter) */
-		});
+		/* ScrollSmoother removed for native scrolling performance */
 	}
 
 

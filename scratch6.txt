@@ -1,0 +1,31 @@
+		gsap.utils.toArray(".fade-anim").forEach(item => {
+			const offset = item.getAttribute("data-fade-offset") || 40,
+				duration = item.getAttribute("data-duration") || 0.75,
+				direction = item.getAttribute("data-fade-from") || "bottom",
+				onScroll = item.getAttribute("data-on-scroll") || "1",
+				delay = item.getAttribute("data-delay") || 0.15,
+				ease = item.getAttribute("data-ease") || "power2.out";
+			const animSettings = {
+				opacity: 0,
+				ease,
+				duration,
+				delay,
+				x: direction === "left" ? -offset : direction === "right" ? offset : 0,
+				y: direction === "top" ? -offset : direction === "bottom" ? offset : 0,
+			};
+
+			if (onScroll === "1") {
+				animSettings.scrollTrigger = {
+					trigger: item,
+					start: "top 85%"
+				};
+			}
+			gsap.from(item, animSettings);
+		});
+
+		//  handle data-speed attr
+		let speedXTriggers = [];
+		function initSpeedX() {
+			speedXTriggers.forEach(st => st.kill());
+			speedXTriggers = [];
+			if (window.innerWidth < 1200) return;

@@ -129,15 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     // Mobile scroll animation for service items
     const serviceItems = document.querySelectorAll(".oit-service-item");
-    if(serviceItems.length > 0) {
+    if (serviceItems.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add("in-view");
                 }
             });
         }, { threshold: 0.15 });
-        
+
         serviceItems.forEach(item => {
             observer.observe(item);
         });
@@ -153,10 +153,10 @@ window.addEventListener('load', () => {
     // 1. Parallax Stacking Effect for Sections (Depth illusion)
     const stackSections = document.querySelectorAll('.dg-about-style, .dg-contact-area, .dg-testimonial-area');
     stackSections.forEach((sec, i) => {
-        gsap.fromTo(sec, 
-            { yPercent: 0 }, 
+        gsap.fromTo(sec,
+            { yPercent: 0 },
             {
-                yPercent: -10, 
+                yPercent: -10,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: sec,
@@ -171,20 +171,20 @@ window.addEventListener('load', () => {
     // 2. Parallax Effect for Media (Videos & Backgrounds)
     const parallaxImages = document.querySelectorAll('.image-gsl video, .st-hero-bg img');
     parallaxImages.forEach((media) => {
-        if(media.parentElement && !media.parentElement.classList.contains('parallax-wrapper-custom')){
+        if (media.parentElement && !media.parentElement.classList.contains('parallax-wrapper-custom')) {
             media.parentElement.style.overflow = 'hidden';
             media.parentElement.classList.add('parallax-wrapper-custom');
         }
 
-        gsap.fromTo(media, 
+        gsap.fromTo(media,
             { yPercent: -15, scale: 1.1 },
             {
                 yPercent: 15,
-                scale: 1.1, 
+                scale: 1.1,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: media.closest('.oit-about-area') || media.parentElement,
-                    start: 'top bottom', 
+                    start: 'top bottom',
                     end: 'bottom top',
                     scrub: true
                 }
@@ -195,10 +195,10 @@ window.addEventListener('load', () => {
     // 3. Smooth Fade-up for standard Sections that aren't already animated
     const standardSections = document.querySelectorAll('.dg-funfact-area, .dg-testimonial-area, .oit-text-slider-area, .dg-contact-area');
     standardSections.forEach((sec) => {
-        gsap.fromTo(sec, 
-            { opacity: 0, y: 40 }, 
+        gsap.fromTo(sec,
+            { opacity: 0, y: 40 },
             {
-                opacity: 1, 
+                opacity: 1,
                 y: 0,
                 duration: 1.2,
                 ease: 'power3.out',
@@ -215,190 +215,244 @@ window.addEventListener('load', () => {
 /* Extracted Inline Scripts */
 
 
-            window.addEventListener('scroll', function () {
-                var headerBg = document.getElementById('header-bg');
-                var headerLinks = document.querySelectorAll('.oit-menu-content a');
-                var headerLogo = document.querySelector('.oit-header-logo img');
+var headerBg = document.getElementById('header-bg');
+var headerLinks = document.querySelectorAll('.oit-menu-content a');
+var headerLogo = document.querySelector('.oit-header-logo img');
+var isScrolled = false;
 
-                if (window.scrollY > 50) {
-                    /* Light transparent gray (Glassmorphism) */
-                    headerBg.style.background = 'rgba(255, 255, 255, 0.75)';
-                    headerBg.style.backdropFilter = 'blur(20px)';
-                    headerBg.style.borderColor = 'rgba(0, 0, 0, 0.05)';
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 50 && !isScrolled) {
+        isScrolled = true;
+        if (headerBg) {
+            headerBg.style.background = 'rgba(255, 255, 255, 0.75)';
+            headerBg.style.backdropFilter = 'blur(20px)';
+            headerBg.style.borderColor = 'rgba(0, 0, 0, 0.05)';
+        }
+        headerLinks.forEach(function (link) { link.style.color = '#333'; });
+        if (headerLogo) headerLogo.style.filter = 'invert(1) brightness(0)';
+    } else if (window.scrollY <= 50 && isScrolled) {
+        isScrolled = false;
+        if (headerBg) {
+            headerBg.style.background = 'rgba(255, 255, 255, 0.02)';
+            headerBg.style.backdropFilter = 'blur(15px)';
+            headerBg.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+        }
+        headerLinks.forEach(function (link) { link.style.color = '#fff'; });
+        if (headerLogo) headerLogo.style.filter = 'none';
+    }
+});
 
-                    /* Make text and logo dark so they are readable on light background */
-                    headerLinks.forEach(function (link) {
-                        link.style.color = '#333';
-                    });
-                    if (headerLogo) headerLogo.style.filter = 'invert(1) brightness(0)';
-                } else {
-                    /* Original transparent background */
-                    headerBg.style.background = 'rgba(255, 255, 255, 0.02)';
-                    headerBg.style.backdropFilter = 'blur(15px)';
-                    headerBg.style.borderColor = 'rgba(255, 255, 255, 0.05)';
 
-                    /* Revert text and logo to white */
-                    headerLinks.forEach(function (link) {
-                        link.style.color = '#fff';
-                    });
-                    if (headerLogo) headerLogo.style.filter = 'none';
+
+window.addEventListener("load", () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* GSAP Smooth Follow for Left Content */
+        ScrollTrigger.matchMedia({
+            "(min-width: 1200px)": function () {
+                let stickContent = document.querySelector(".sticky-left-content");
+                let wrapContent = document.querySelector(".huge-stats-wrapper");
+                if (stickContent && wrapContent) {
+                    let distance = wrapContent.offsetHeight - stickContent.offsetHeight;
+                    if (distance > 0) {
+                        gsap.to(stickContent, {
+                            y: distance,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: wrapContent,
+                                start: "top 20%",
+                                end: () => "+=" + distance,
+                                scrub: 1.5 /* This creates the butter-smooth delayed follow effect */
+                            }
+                        });
+                    }
                 }
+            }
+        });
+        const stats = gsap.utils.toArray('.huge-stat-item');
+        stats.forEach(stat => {
+            ScrollTrigger.create({
+                trigger: stat,
+                start: "top 65%",
+                end: "bottom 35%",
+                toggleClass: "is-active"
             });
-        
+        });
+    }
+});
 
 
-                        window.addEventListener("load", () => {
-                            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                                gsap.registerPlugin(ScrollTrigger);
 
-                                // Pin the left content using GSAP (solves native sticky + ScrollSmoother issues)
-                                ScrollTrigger.matchMedia({
-                                    "(min-width: 1200px)": function() {
-                                        ScrollTrigger.create({
-                                            trigger: ".huge-stats-wrapper",
-                                            start: "top 30%",
-                                            end: "bottom 80%",
-                                            pin: ".sticky-left-content",
-                                            pinSpacing: false
-                                        });
-                                    }
-                                });
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector('.digital-ecosystem-section');
+    if (!section) return;
 
-                                const stats = gsap.utils.toArray('.huge-stat-item');
-                                stats.forEach(stat => {
-                                    ScrollTrigger.create({
-                                        trigger: stat,
-                                        start: "top 65%",
-                                        end: "bottom 35%",
-                                        toggleClass: "is-active"
-                                    });
-                                });
-                            }
-                        });
-                    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                section.classList.add('eco-visible');
+                setTimeout(() => {
+                    section.classList.add('eco-ready');
+                }, 1500);
+                observer.unobserve(section);
+            }
+        });
+    }, { threshold: 0.15 });
+    observer.observe(section);
 
+    const viz = document.getElementById('ecoViz');
+    const nodes = section.querySelectorAll('.eco-node-wrapper');
+    const hub = section.querySelector('.eco-hub');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    const section = document.querySelector('.digital-ecosystem-section');
-                                    if (!section) return;
+    if (!prefersReducedMotion && viz) {
+        viz.addEventListener('mousemove', (e) => {
+            const rect = viz.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
 
-                                    const observer = new IntersectionObserver((entries) => {
-                                        entries.forEach(entry => {
-                                            if (entry.isIntersecting) {
-                                                section.classList.add('eco-visible');
-                                                setTimeout(() => {
-                                                    section.classList.add('eco-ready');
-                                                }, 1500);
-                                                observer.unobserve(section);
-                                            }
-                                        });
-                                    }, { threshold: 0.15 });
-                                    observer.observe(section);
+            nodes.forEach(node => {
+                const factor = parseFloat(node.getAttribute('data-parallax')) || 0.05;
+                node.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+            });
+            hub.style.transform = `translate(calc(-50% + ${mouseX * 0.02}px), calc(-50% + ${mouseY * 0.02}px)) scale(1)`;
+        });
 
-                                    const viz = document.getElementById('ecoViz');
-                                    const nodes = section.querySelectorAll('.eco-node-wrapper');
-                                    const hub = section.querySelector('.eco-hub');
-                                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        viz.addEventListener('mouseleave', () => {
+            nodes.forEach(node => {
+                node.style.transform = `translate(0px, 0px)`;
+            });
+            hub.style.transform = `translate(-50%, -50%) scale(1)`;
+        });
+    }
 
-                                    if (!prefersReducedMotion && viz) {
-                                        viz.addEventListener('mousemove', (e) => {
-                                            const rect = viz.getBoundingClientRect();
-                                            const centerX = rect.left + rect.width / 2;
-                                            const centerY = rect.top + rect.height / 2;
-                                            const mouseX = e.clientX - centerX;
-                                            const mouseY = e.clientY - centerY;
-
-                                            nodes.forEach(node => {
-                                                const factor = parseFloat(node.getAttribute('data-parallax')) || 0.05;
-                                                node.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
-                                            });
-                                            hub.style.transform = `translate(calc(-50% + ${mouseX * 0.02}px), calc(-50% + ${mouseY * 0.02}px)) scale(1)`;
-                                        });
-
-                                        viz.addEventListener('mouseleave', () => {
-                                            nodes.forEach(node => {
-                                                node.style.transform = `translate(0px, 0px)`;
-                                            });
-                                            hub.style.transform = `translate(-50%, -50%) scale(1)`;
-                                        });
-                                    }
-
-                                    const lines = section.querySelectorAll('.eco-line');
-                                    nodes.forEach((node, index) => {
-                                        node.addEventListener('mouseenter', () => {
-                                            if (lines[index]) lines[index].classList.add('active-line');
-                                        });
-                                        node.addEventListener('mouseleave', () => {
-                                            if (lines[index]) lines[index].classList.remove('active-line');
-                                        });
-                                    });
-                                });
-                            
+    const lines = section.querySelectorAll('.eco-line');
+    nodes.forEach((node, index) => {
+        node.addEventListener('mouseenter', () => {
+            if (lines[index]) lines[index].classList.add('active-line');
+        });
+        node.addEventListener('mouseleave', () => {
+            if (lines[index]) lines[index].classList.remove('active-line');
+        });
+    });
+});
 
 
-                        window.addEventListener("load", () => {
-                            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                                const section = document.getElementById('horizontal-projects-wrapper');
-                                const track = document.getElementById('horizontalProjectsTrack');
 
-                                // Cursor Logic
-                                const cursorFollower = document.querySelector('.cursor-view-follower');
-                                const projectItems = document.querySelectorAll('.horizontal-project-item');
+window.addEventListener("load", () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        const section = document.querySelector('.roya-horizontal-projects-pin');
+        const track = document.querySelector('.roya-horizontal-projects-track');
 
-                                if (cursorFollower && projectItems.length) {
-                                    document.body.appendChild(cursorFollower); // Move to body to prevent transform conflicts
+        // --- NEW CUSTOM CURSOR LOGIC ---
+        // 1. Create Cursor Elements
+        const cursorDot = document.createElement('div');
+        cursorDot.classList.add('roya-cursor-dot');
+        document.body.appendChild(cursorDot);
 
-                                    const xSet = gsap.quickSetter(cursorFollower, "x", "px");
-                                    const ySet = gsap.quickSetter(cursorFollower, "y", "px");
+        const cursorOutline = document.createElement('div');
+        cursorOutline.classList.add('roya-cursor-outline');
 
-                                    document.addEventListener('mousemove', (e) => {
-                                        xSet(e.clientX);
-                                        ySet(e.clientY);
-                                    });
+        const cursorText = document.createElement('span');
+        cursorText.classList.add('roya-cursor-text');
+        cursorText.innerText = 'View';
+        cursorOutline.appendChild(cursorText);
+        document.body.appendChild(cursorOutline);
 
-                                    projectItems.forEach(item => {
-                                        item.addEventListener('mouseenter', () => {
-                                            cursorFollower.classList.add('active');
-                                        });
-                                        item.addEventListener('mouseleave', () => {
-                                            cursorFollower.classList.remove('active');
-                                        });
-                                    });
-                                }
+        // 2. Hide default cursor
+        document.documentElement.style.cursor = 'none';
+        const allLinks = document.querySelectorAll('a, button');
+        allLinks.forEach(el => el.style.cursor = 'none');
 
-                                if (section && track) {
-                                    setTimeout(() => {
-                                        // Added extra 100px padding so the last card is completely visible
-                                        const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 100);
+        // 3. Movement Logic
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let outlineX = mouseX;
+        let outlineY = mouseY;
 
-                                        gsap.to(track, {
-                                            x: getScrollAmount,
-                                            ease: "none",
-                                            scrollTrigger: {
-                                                trigger: section,
-                                                start: "center center",
-                                                end: () => `+=${track.scrollWidth}`,
-                                                pin: true,
-                                                animation: true,
-                                                scrub: 1.5,
-                                                invalidateOnRefresh: true
-                                            }
-                                        });
-                                    }, 150);
-                                }
-                            }
-                        });
-                    
+        // Ensure GSAP updates fast enough
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            gsap.set(cursorDot, { x: mouseX, y: mouseY });
+        });
+
+        gsap.ticker.add(() => {
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+            gsap.set(cursorOutline, { x: outlineX, y: outlineY });
+        });
+
+        // 4. Hover states
+        allLinks.forEach(link => {
+            if (!link.classList.contains('roya-proj-link')) {
+                link.addEventListener('mouseenter', () => cursorOutline.classList.add('link-hover'));
+                link.addEventListener('mouseleave', () => cursorOutline.classList.remove('link-hover'));
+            }
+        });
+
+        const projectLinks = document.querySelectorAll('.roya-proj-link');
+        projectLinks.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('project-hover');
+                cursorDot.classList.add('project-hover');
+            });
+            card.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('project-hover');
+                cursorDot.classList.remove('project-hover');
+            });
+        });
+
+        if (section && track) {
+            setTimeout(() => {
+                // Added extra 100px padding so the last card is completely visible
+                const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 100);
+
+                // Create a timeline mapped to the overall section scroll
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "center center",
+                        end: () => `+=${track.scrollWidth}`,
+                        pin: true,
+                        animation: true,
+                        scrub: 1.5,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+                // Move horizontal track
+                tl.to(track, {
+                    x: getScrollAmount,
+                    ease: "none"
+                }, 0);
+
+                // Progress Bar fill
+                const progressBar = section.querySelector('.roya-progress-bar-fill');
+                if (progressBar) {
+                    tl.to(progressBar, {
+                        scaleX: 1,
+                        ease: "none"
+                    }, 0);
+                }
+            }, 150);
+        }
+    }
+});
+
 
 // Refresh ScrollTrigger when images load to fix scroll sticking
 if (typeof imagesLoaded !== "undefined") {
-    imagesLoaded(document.body, function() {
+    imagesLoaded(document.body, function () {
         if (typeof ScrollTrigger !== "undefined") {
             ScrollTrigger.refresh();
         }
     });
 } else {
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
         if (typeof ScrollTrigger !== "undefined") {
             setTimeout(() => ScrollTrigger.refresh(), 500);
         }
@@ -407,41 +461,19 @@ if (typeof imagesLoaded !== "undefined") {
 
 
 /* --- Moved from HTML --- */
-                        window.addEventListener("load", () => {
-                            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                                gsap.registerPlugin(ScrollTrigger);
+window.addEventListener("load", () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-                                const stats = gsap.utils.toArray('.huge-stat-item');
-                                stats.forEach(stat => {
-                                    ScrollTrigger.create({
-                                        trigger: stat,
-                                        start: "top 65%",
-                                        end: "bottom 35%",
-                                        toggleClass: "is-active"
-                                    });
-                                });
+        const stats = gsap.utils.toArray('.huge-stat-item');
+        stats.forEach(stat => {
+            ScrollTrigger.create({
+                trigger: stat,
+                start: "top 65%",
+                end: "bottom 35%",
+                toggleClass: "is-active"
+            });
+        });
 
-                                /* Re-add Pin left content with correct trigger start to ensure visibility from the top */
-                                ScrollTrigger.matchMedia({
-                                    "(min-width: 1200px)": function () {
-                                        let stickContent = document.querySelector(".sticky-left-content");
-                                        let wrapContent = document.querySelector(".huge-stats-wrapper");
-                                        if (stickContent && wrapContent) {
-                                            let distance = wrapContent.offsetHeight - stickContent.offsetHeight;
-                                            if (distance > 0) {
-                                                gsap.to(stickContent, {
-                                                    y: distance,
-                                                    ease: "none",
-                                                    scrollTrigger: {
-                                                        trigger: wrapContent,
-                                                        start: "top top+=15%",
-                                                        end: () => "+=" + distance,
-                                                        scrub: true
-                                                    }
-                                                });
-                                            }
-                                        }
-                                    }
-                                });
-                            }
-                        });
+    }
+});
