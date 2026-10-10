@@ -253,3 +253,55 @@ document.addEventListener("DOMContentLoaded", () => {
         ring.classList.remove('cursor-click');
     });
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Infinite Marquee Setup
+    const marqueeSections = document.querySelectorAll('.oit-marquee-section');
+    
+    function initMarquee() {
+        marqueeSections.forEach(section => {
+            const tracks = section.querySelectorAll('.oit-marquee-track');
+            
+            tracks.forEach(track => {
+                const originalSet = track.querySelector('.oit-marquee-set:not(.cloned)');
+                if (!originalSet) return;
+                
+                track.querySelectorAll('.oit-marquee-set.cloned').forEach(el => el.remove());
+                
+                const setWidth = originalSet.getBoundingClientRect().width;
+                if (setWidth === 0) return;
+                
+                track.style.setProperty('--set-width', `${setWidth}px`);
+                
+                const viewportWidth = window.innerWidth;
+                const minWidthNeeded = viewportWidth * 2;
+                const copiesNeeded = Math.max(2, Math.ceil(minWidthNeeded / setWidth) + 1);
+                
+                for (let i = 1; i < copiesNeeded; i++) {
+                    const clone = originalSet.cloneNode(true);
+                    clone.classList.add('cloned');
+                    clone.setAttribute('aria-hidden', 'true');
+                    track.appendChild(clone);
+                }
+            });
+        });
+    }
+
+    initMarquee();
+    window.addEventListener('load', initMarquee);
+    
+    window.addEventListener('resize', () => {
+        clearTimeout(window.marqueeResizeTimer);
+        window.marqueeResizeTimer = setTimeout(initMarquee, 150);
+    });
+    
+    marqueeSections.forEach(section => {
+        const imgs = section.querySelectorAll('img');
+        imgs.forEach(img => {
+            if (!img.complete) {
+                img.addEventListener('load', initMarquee);
+            }
+        });
+    });
+});
+
