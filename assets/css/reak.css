@@ -10397,40 +10397,4 @@ body {
   }
 }
 
-/* Swiper scaling effect for center slide ONLY in Projects */
-.featured-project-carousel {
-  padding-top: 40px !important;
-  padding-bottom: 40px !important;
-  margin-top: -40px;
-  /* Offset to keep vertical rhythm if necessary, though Swiper might prefer just padding */
-  margin-bottom: -40px;
-}
-
-.featured-project-carousel .swiper-slide {
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease-in-out;
-  transform: scale(0.9);
-  /* Sides are slightly smaller */
-  opacity: 0.6;
-  pointer-events: none;
-  /* Prevent clicks on side cards */
-}
-
-.featured-project-carousel .swiper-slide-active {
-  transform: scale(1.08);
-  /* Center card scales up and looks bigger */
-  opacity: 1;
-  pointer-events: auto;
-  z-index: 10;
-}
-
-@media (max-width: 767px) {
-  .featured-project-carousel .swiper-slide {
-    transform: scale(0.95);
-    /* Keep side cards viewable on mobile */
-  }
-
-  .featured-project-carousel .swiper-slide-active {
-    transform: scale(1.05);
-    /* Enlarge center card on mobile */
-  }
-}
+/* Featured Project styles are fully handled in roya-homepage.css */

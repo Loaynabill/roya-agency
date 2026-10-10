@@ -2494,19 +2494,22 @@ p {
     display: block;
 }
 
-/* 2. Group blur effect on hover */
-.featured-project-carousel:hover .st-project-item {
-    filter: grayscale(80%) blur(4px);
-    opacity: 0.6;
+.featured-project-carousel .st-project-item {
+    pointer-events: auto !important;
+    filter: grayscale(0%) blur(0px);
+    opacity: 1;
+    transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
-.featured-project-carousel .st-project-item:hover {
-    filter: grayscale(0%) blur(0px) !important;
-    opacity: 1 !important;
+/* 2. Group blur effect on hover */
+.featured-project-carousel.has-hovered-item .st-project-item:not(:hover):not(.is-active-hover) {
+    filter: grayscale(80%) blur(4px) !important;
+    opacity: 0.5 !important;
 }
 
 /* 3. Image scale on hover */
-.st-project-item:hover .st-project-thumb img {
+.st-project-item:hover .st-project-thumb img,
+.st-project-item.is-active-hover .st-project-thumb img {
     transform: scale(1.08) !important;
 }
 
@@ -2523,8 +2526,9 @@ p {
     transition: opacity 0.4s ease;
 }
 
-.st-project-item:hover .st-project-thumb::before {
-    opacity: 1;
+.st-project-item:hover .st-project-thumb::before,
+.st-project-item.is-active-hover .st-project-thumb::before {
+    opacity: 1 !important;
 }
 
 /* 5. Center "VIEW" button that follows mouse */
@@ -2542,7 +2546,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -2551,9 +2555,10 @@ p {
     box-shadow: 0 10px 20px rgba(255, 70, 50, 0.4);
 }
 
-.st-project-item:hover .st-project-thumb::after {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+.st-project-item:hover .st-project-thumb::after,
+.st-project-item.is-active-hover .st-project-thumb::after {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
 }
 
 /* 6. Content overlay positioning */
@@ -2579,9 +2584,10 @@ p {
     justify-content: flex-start !important;
 }
 
-.st-project-item:hover .st-project-content-wrap {
-    opacity: 1;
-    transform: translateY(0);
+.st-project-item:hover .st-project-content-wrap,
+.st-project-item.is-active-hover .st-project-content-wrap {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .st-project-item .st-project-content {
@@ -2595,14 +2601,18 @@ p {
 /* Hide original cursor */
 .st-project-item,
 .st-project-item *,
-.st-project-item:hover {
+.st-project-item:hover,
+.st-project-item.is-active-hover {
     cursor: none !important;
 }
 
 /* Hide the custom global cursor from custom-roya.js when hovering card */
+body.is-hovering-project .cursor-dot,
+body.is-hovering-project .cursor-ring,
 body:has(.st-project-item:hover) .cursor-dot,
 body:has(.st-project-item:hover) .cursor-ring {
     display: none !important;
+    opacity: 0 !important;
 }
 
 /* Title styling */
@@ -2635,8 +2645,8 @@ body:has(.st-project-item:hover) .cursor-ring {
 /* Resize VIEW circle and fonts on mobile */
 @media (max-width: 767px) {
     .st-project-item .st-project-thumb::after {
-        width: 30px;
-        height: 30px;
+        width: 32.5px;
+        height: 32.5px;
         font-size: 7px;
     }
 
@@ -2647,4 +2657,171 @@ body:has(.st-project-item:hover) .cursor-ring {
     .st-project-item .st-project-content-wrap {
         padding: 20px !important;
     }
+}
+
+/* ============================================
+   PREMIUM INTEGRATION CARD (SEAMLESS CONNECTIVITY)
+   ============================================ */
+.roya-premium-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1;
+}
+
+/* Hover background glowing orb effect */
+.roya-premium-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 70, 50, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.6s ease;
+    transform: scale(0.5);
+}
+
+.roya-premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(255, 70, 50, 0.12);
+    border-color: rgba(255, 70, 50, 0.2);
+}
+
+.roya-premium-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.roya-premium-card .card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 70, 50, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #ff4632;
+    font-size: 28px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.roya-premium-card:hover .card-icon {
+    background-color: #ff4632;
+    color: #fff;
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 70, 50, 0.3);
+}
+
+.roya-premium-card .card-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.roya-premium-card:hover .card-title {
+    color: #ff4632;
+}
+
+.roya-premium-card .card-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.roya-premium-card .card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.roya-premium-card .card-features li {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.roya-premium-card:hover .card-features li {
+    transform: translateX(8px);
+}
+
+.roya-premium-card .card-features li i {
+    color: #ff4632;
+    font-size: 20px;
+    margin-right: 14px;
+    transition: transform 0.3s ease;
+}
+
+.roya-premium-card:hover .card-features li i {
+    transform: scale(1.2);
+}
+
+/* ============================================
+   PROJECTS HORIZONTAL SCROLL (GSAP)
+   ============================================ */
+.featured-project-carousel {
+    overflow: hidden !important;
+    width: 100vw !important;
+    position: relative;
+    padding-bottom: 80px !important; /* Make room for progress bar */
+}
+
+.featured-project-carousel .swiper-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    gap: 15px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.featured-project-carousel .swiper-slide {
+    width: 70vw !important;
+    max-width: 800px !important;
+    min-width: 320px !important;
+    flex-shrink: 0 !important;
+    height: auto !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+@media (max-width: 768px) {
+    .featured-project-carousel .swiper-slide {
+        width: 85vw !important;
+    }
+}
+
+.roya-project-progress-track {
+    position: relative;
+    width: 60%;
+    max-width: 500px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.08); /* Light track */
+    border-radius: 6px;
+    margin: 40px auto 0 auto; /* Spacing from projects */
+    overflow: hidden;
+}
+
+.roya-project-progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #ff4632; /* Brand orange */
+    border-radius: 6px;
 }

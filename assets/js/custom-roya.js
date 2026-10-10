@@ -305,26 +305,76 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Project Cards Hover - Mouse following logic for the VIEW button
+function initProjectCardsHover() {
     const projectItems = document.querySelectorAll('.st-project-item');
     projectItems.forEach(item => {
         item.addEventListener('mousemove', (e) => {
             const rect = item.getBoundingClientRect();
-            // Calculate mouse position relative to the card
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Set CSS variables that position the ::after pseudo-element
             item.style.setProperty('--mouse-x', `${x}px`);
             item.style.setProperty('--mouse-y', `${y}px`);
         });
         
-        // Reset to center when mouse leaves
+        item.addEventListener('mouseenter', () => {
+            const carousel = item.closest('.featured-project-carousel');
+            if (carousel) carousel.classList.add('has-hovered-item');
+            document.body.classList.add('is-hovering-project');
+            item.classList.add('is-active-hover');
+        });
+        
         item.addEventListener('mouseleave', () => {
+            const carousel = item.closest('.featured-project-carousel');
+            if (carousel) carousel.classList.remove('has-hovered-item');
+            document.body.classList.remove('is-hovering-project');
+            item.classList.remove('is-active-hover');
             item.style.setProperty('--mouse-x', '50%');
             item.style.setProperty('--mouse-y', '50%');
         });
     });
-});
+}
+
+function initProjectsScroll() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        const carousel = document.querySelector('.featured-project-carousel');
+        const wrapper = document.querySelector('.featured-project-carousel .swiper-wrapper');
+        const progressFill = document.querySelector('.roya-project-progress-fill');
+        
+        if (carousel && wrapper && progressFill) {
+            function getScrollAmount() {
+                let wrapperWidth = wrapper.scrollWidth;
+                return -(wrapperWidth - window.innerWidth);
+            }
+            
+            const tween = gsap.to(wrapper, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+            
+            ScrollTrigger.create({
+                trigger: carousel,
+                start: "top 20%",
+                end: () => `+=${getScrollAmount() * -1}`,
+                pin: true,
+                animation: tween,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    progressFill.style.width = (self.progress * 100) + "%";
+                }
+            });
+        }
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", () => {
+        initProjectCardsHover();
+        initProjectsScroll();
+    });
+} else {
+    initProjectCardsHover();
+    initProjectsScroll();
+}
 

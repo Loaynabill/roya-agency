@@ -68,20 +68,6 @@
         },
     })
 
-    const featuredProjectSwiper = new Swiper('.featured-project-carousel', {
-        speed: 1000,
-        loop: true,
-        loopedSlides: 4,
-        centeredSlides: true,
-        slidesPerView: 1.4,
-        spaceBetween: 15,
-        autoplay: true,
-        breakpoints: {
-            '1200': { slidesPerView: 2.1, spaceBetween: 30 },
-            '992': { slidesPerView: 2, spaceBetween: 30 },
-            '768': { slidesPerView: 1.5, spaceBetween: 25 },
-            '0': { slidesPerView: 1.3, spaceBetween: 15 },
-        }
-    });
+    /* featuredProjectSwiper is now handled by GSAP ScrollTrigger in custom-roya.js */
 
 })(jQuery);
