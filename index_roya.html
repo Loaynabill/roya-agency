@@ -774,51 +774,118 @@
                             </div>
                             <div class="col-lg-7 px-3 order-1 order-lg-2 mb-5 mb-lg-0">
                                 <!-- Integrations Graph -->
-                                <div class="integrations-graph">
-                                    <!-- SVG Connecting Lines -->
-                                    <svg class="connecting-lines"></svg>
-                                    <!-- Tool Icons (Positioned Absolute) -->
-                                    <div class="tool-icon" style="top: 10%; left: 10%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg"
-                                            alt="Notion" loading="lazy">
+                                <div class="integrations-graph orbital-graph">
+                                    <!-- Center Logo -->
+                                    <div class="orbital-center">
+                                        <span>ROYA</span>
+                                        <div class="orbital-ring ring-1"></div>
+                                        <div class="orbital-ring ring-2"></div>
                                     </div>
-                                    <div class="tool-icon" style="top: 30%; left: 22%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg"
-                                            alt="Shopify" loading="lazy">
-                                    </div>
-                                    <div class="tool-icon" style="top: 60%; left: 22%;">
-                                        <!-- Place Google Analytics or HubSpot icon here -->
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg"
-                                            alt="Shopify" loading="lazy">
-                                    </div>
-                                    <div class="tool-icon" style="top: 80%; left: 10%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
-                                            alt="Slack" loading="lazy">
-                                    </div>
-                                    <!-- Center Main Logo -->
-                                    <div class="center-logo-wrapper">
-                                        <div class="center-logo">
-                                            <span style="font-size: 1.25rem; color: white;">Roya</span>
+
+                                    <!-- Orbit 1 (38%) -->
+                                    <div class="orbit orbit-1">
+                                        <div class="orbit-item" style="--angle: -75deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-1-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
+                                                            alt="Slack" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="orbit-ring"></div>
+                                        <div class="orbit-item" style="--angle: 80deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-1-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg"
+                                                            alt="Notion" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- Right Tool Icons -->
-                                    <div class="tool-icon" style="top: 10%; right: 15%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg"
-                                            alt="Sheets" loading="lazy">
+
+                                    <!-- Orbit 2 (58%) -->
+                                    <div class="orbit orbit-2">
+                                        <div class="orbit-item" style="--angle: -95deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-2-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg"
+                                                            alt="Shopify" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="orbit-item" style="--angle: 140deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-2-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                                            alt="GitHub" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="orbit-item" style="--angle: 25deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-2-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg"
+                                                            alt="Google Sheets" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="tool-icon" style="top: 30%; right: 28%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg"
-                                            alt="HubSpot" loading="lazy">
+
+                                    <!-- Orbit 3 (78%) - Empty -->
+                                    <div class="orbit orbit-3"></div>
+
+                                    <!-- Orbit 4 (98%) -->
+                                    <div class="orbit orbit-4 hide-on-mobile">
+                                        <div class="orbit-item" style="--angle: -60deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-4-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg"
+                                                            alt="Google Drive" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="orbit-item" style="--angle: 180deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-4-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
+                                                            alt="Slack" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="orbit-item" style="--angle: 55deg;">
+                                            <div class="orbit-icon-static"
+                                                style="transform: rotate(calc(var(--angle) * -1));">
+                                                <div class="orbit-icon-dynamic orbit-4-counter">
+                                                    <div class="orbit-icon hover-target">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
+                                                            alt="Figma" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="tool-icon" style="top: 60%; right: 28%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                                            alt="GitHub" loading="lazy">
-                                    </div>
-                                    <div class="tool-icon" style="top: 80%; right: 15%;">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg"
-                                            alt="Drive" loading="lazy">
-                                    </div>
+
+
                                 </div> <!-- End integrations-graph -->
                             </div>
                         </div>

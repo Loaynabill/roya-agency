@@ -1020,6 +1020,234 @@ p {
     color: #666;
 }
 
+/* ==========================================================================
+   ORBITAL INTEGRATIONS GRAPH
+   ========================================================================== */
+.orbital-graph {
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    max-width: 620px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    background: transparent;
+    --icon-size: clamp(44px, 9vw, 60px);
+}
+
+.orbital-graph:hover .orbit,
+.orbital-graph:hover .orbit-icon-dynamic {
+    animation-play-state: paused !important;
+}
+
+/* Center Logo */
+.orbital-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #ff5a1f, #ff3d2e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(255, 90, 31, 0.45);
+    z-index: 10;
+}
+
+.orbital-center span {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+/* Center Pulsing Rings */
+.orbital-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 90, 31, 0.5);
+    pointer-events: none;
+}
+
+.orbital-ring.ring-1 {
+    width: 110px;
+    height: 110px;
+    animation: pulse-ring 3s infinite ease-out;
+}
+
+.orbital-ring.ring-2 {
+    width: 140px;
+    height: 140px;
+    animation: pulse-ring 3s infinite ease-out 1.5s;
+}
+
+@keyframes pulse-ring {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.08); opacity: 0; }
+}
+
+/* Orbits */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.orbit-1 { width: 38%; height: 38%; animation: spin 45s linear infinite; }
+.orbit-2 { width: 58%; height: 58%; animation: spin-reverse 60s linear infinite; }
+.orbit-3 { width: 78%; height: 78%; animation: spin 75s linear infinite; }
+.orbit-4 { width: 98%; height: 98%; animation: spin-reverse 90s linear infinite; }
+
+/* Orbit Items & Icons */
+.orbit-item {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform: rotate(var(--angle));
+}
+
+.orbit-icon-static {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: calc(var(--icon-size) / -2);
+    margin-left: calc(var(--icon-size) / -2);
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.orbit-icon-dynamic {
+    width: 100%;
+    height: 100%;
+}
+
+.orbit-1-counter { animation: spin-reverse 45s linear infinite; }
+.orbit-2-counter { animation: spin 60s linear infinite; }
+.orbit-3-counter { animation: spin-reverse 75s linear infinite; }
+.orbit-4-counter { animation: spin 90s linear infinite; }
+
+.hover-target {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-target img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.hover-target:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes spin {
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Re-define spin without translate for the dynamic counters, since they are not translate(-50%, -50%) */
+.orbit-1-counter { animation: counter-spin-reverse 45s linear infinite; }
+.orbit-2-counter { animation: counter-spin 60s linear infinite; }
+.orbit-3-counter { animation: counter-spin-reverse 75s linear infinite; }
+.orbit-4-counter { animation: counter-spin 90s linear infinite; }
+
+@keyframes counter-spin {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes counter-spin-reverse {
+    100% { transform: rotate(-360deg); }
+}
+
+/* Decorative Top Right Element */
+.orbital-decorator {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 90, 31, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: decorator-pulse 4s infinite ease-in-out;
+}
+
+.orbital-decorator::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #ff5a1f;
+    border-radius: 50%;
+}
+
+@keyframes decorator-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Responsive Overrides */
+@media (prefers-reduced-motion: reduce) {
+    .orbit, .orbit-icon-dynamic, .orbital-ring, .orbital-decorator {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .orbital-graph {
+        /* Restrict width to allow icons to protrude outside the container safely without causing horizontal scrollbar */
+        width: calc(100% - 60px);
+        margin: 40px auto;
+    }
+    
+    /* Slightly shrink the center to give orbits more breathing room */
+    .orbital-center {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .orbital-center span {
+        font-size: 15px;
+    }
+    
+    .orbital-ring.ring-1 { width: 95px; height: 95px; }
+    .orbital-ring.ring-2 { width: 120px; height: 120px; }
+
+    /* Redistribute the orbits to utilize the space optimally */
+    .orbit-1 { width: 45%; height: 45%; }
+    .orbit-2 { width: 72%; height: 72%; }
+    .orbit-4 { width: 100%; height: 100%; }
+
+    /* No need to hide the outer orbit now that overflow is prevented! */
+    .hide-on-mobile {
+        display: block !important;
+    }
+}
+
 /* ============================================
    CONTACT SECTION
    ============================================ */

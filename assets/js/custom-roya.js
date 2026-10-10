@@ -75,56 +75,6 @@
     }
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
-    const graph = document.querySelector(".integrations-graph");
-    const svg = document.querySelector(".connecting-lines");
-    const center = document.querySelector(".center-logo-wrapper");
-    const icons = document.querySelectorAll(".tool-icon");
-
-    if (!graph || !svg || !center) return;
-
-    function drawConnectingLines() {
-        // Empty SVG
-        svg.innerHTML = '';
-
-        // Set SVG size identically to the graph container to match coordinate systems
-        svg.setAttribute('width', graph.offsetWidth);
-        svg.setAttribute('height', graph.offsetHeight);
-
-        const centerRect = center.getBoundingClientRect();
-        const graphRect = graph.getBoundingClientRect();
-
-        const centerX = centerRect.left - graphRect.left + (centerRect.width / 2);
-        const centerY = centerRect.top - graphRect.top + (centerRect.height / 2);
-
-        icons.forEach((icon, index) => {
-            const iconRect = icon.getBoundingClientRect();
-
-            const iconX = iconRect.left - graphRect.left + (iconRect.width / 2);
-            const iconY = iconRect.top - graphRect.top + (iconRect.height / 2);
-
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-
-            const controlPointX = centerX + (iconX - centerX) / 2;
-
-            const d = `M ${centerX} ${centerY} C ${controlPointX} ${centerY}, ${controlPointX} ${iconY}, ${iconX} ${iconY}`;
-
-            path.setAttribute("d", d);
-            path.setAttribute("class", "line line-animated");
-            path.style.animationDelay = `${index * 0.2}s`;
-
-            svg.appendChild(path);
-        });
-    }
-
-    let resizeTimeout;
-    drawConnectingLines();
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(drawConnectingLines, 50);
-    });
-});
-
 
 document.addEventListener("DOMContentLoaded", () => {
     // Mobile scroll animation for service items
