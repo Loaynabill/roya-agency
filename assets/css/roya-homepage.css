@@ -1646,3 +1646,97 @@ p {
         padding: 40px 0;
     }
 }
+
+/* ==========================================================================
+   GLOBAL CUSTOM ANIMATED MOUSE CURSOR
+   ========================================================================== */
+:root {
+    --cursor-color: #ff4d2e;
+    --dot-size: 6px;
+    --ring-size: 36px;
+    --ring-lerp: 0.15;
+}
+
+/* Enable only on devices with a real mouse pointer (ignore touch devices) */
+@media (hover: hover) and (pointer: fine) {
+    /* Hide default cursor on desktop */
+    html, body, a, button, [role="button"], label, summary, select {
+        cursor: none !important;
+    }
+    
+    /* Keep normal text cursor over inputs and textareas */
+    input, textarea, [contenteditable="true"] {
+        cursor: text !important;
+    }
+
+    /* Base wrapper styles (used for positional translate3d by JS) */
+    .cursor-dot, .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999;
+        opacity: 0; /* Hidden initially, shown after first mousemove */
+        transition: opacity 0.25s ease;
+    }
+
+    /* Inner layers handle scale/color transforms smoothly without interfering with positional JS */
+    .cursor-dot-inner {
+        width: var(--dot-size);
+        height: var(--dot-size);
+        background-color: var(--cursor-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform 0.25s ease;
+    }
+
+    .cursor-ring-inner {
+        width: var(--ring-size);
+        height: var(--ring-size);
+        border: 1px solid var(--cursor-color);
+        background-color: transparent;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform 0.25s ease, background-color 0.25s ease;
+        animation: cursor-pulse 2s infinite ease-in-out;
+    }
+
+    /* Optional subtle idle pulse */
+    @keyframes cursor-pulse {
+        0% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.1); }
+        100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* --- STATES --- */
+
+    /* Hover state over interactive elements */
+    .cursor-hover .cursor-ring-inner {
+        transform: translate(-50%, -50%) scale(1.6);
+        background-color: rgba(255, 77, 46, 0.12);
+        animation: none; /* Stop pulse */
+    }
+    
+    .cursor-hover .cursor-dot-inner {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    /* Click state */
+    .cursor-click .cursor-ring-inner {
+        transform: translate(-50%, -50%) scale(0.8);
+        animation: none; /* Stop pulse */
+    }
+
+    /* Input hover state (hide custom cursor over text inputs so native one shines) */
+    .cursor-input .cursor-dot,
+    .cursor-input .cursor-ring {
+        opacity: 0 !important;
+    }
+    
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        .cursor-ring-inner {
+            animation: none !important;
+        }
+    }
+}

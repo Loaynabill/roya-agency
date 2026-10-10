@@ -135,3 +135,121 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+/* ==========================================================================
+   GLOBAL CUSTOM ANIMATED MOUSE CURSOR
+   ========================================================================== */
+(function() {
+    // Only initialize on devices that have a real mouse (no touch screens)
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        return;
+    }
+
+    // Create the cursor elements
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const dotInner = document.createElement('div');
+    dotInner.className = 'cursor-dot-inner';
+    dot.appendChild(dotInner);
+
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    const ringInner = document.createElement('div');
+    ringInner.className = 'cursor-ring-inner';
+    ring.appendChild(ringInner);
+
+    // Append to body
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    // State variables
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
+    let isInitialized = false;
+
+    // Check accessibility preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lerpAmount = prefersReducedMotion ? 1 : 0.15; // No lag if reduced motion is preferred
+
+    // Main animation loop
+    function render() {
+        // Dot follows instantly
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+
+        // Ring follows with smooth lerp
+        ringX += (mouseX - ringX) * lerpAmount;
+        ringY += (mouseY - ringY) * lerpAmount;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+
+        requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // On very first move, snap the ring instantly to mouse and fade them in
+        if (!isInitialized) {
+            ringX = mouseX;
+            ringY = mouseY;
+            dot.style.opacity = '1';
+            ring.style.opacity = '1';
+            isInitialized = true;
+        }
+    });
+
+    // Hide when mouse leaves the browser window
+    document.addEventListener('mouseleave', () => {
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+    });
+    
+    // Show when mouse enters the browser window
+    document.addEventListener('mouseenter', () => {
+        if (isInitialized) {
+            dot.style.opacity = '1';
+            ring.style.opacity = '1';
+        }
+    });
+
+    // Handle interactive hover states (Event Delegation)
+    const hoverSelectors = 'a, button, [role="button"], label, summary, .tool-icon, .menu-item, .card, [data-cursor="hover"]';
+    const inputSelectors = 'input, textarea, [contenteditable="true"]';
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(hoverSelectors)) {
+            dot.classList.add('cursor-hover');
+            ring.classList.add('cursor-hover');
+        }
+        if (e.target.closest(inputSelectors)) {
+            dot.classList.add('cursor-input');
+            ring.classList.add('cursor-input');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(hoverSelectors)) {
+            dot.classList.remove('cursor-hover');
+            ring.classList.remove('cursor-hover');
+        }
+        if (e.target.closest(inputSelectors)) {
+            dot.classList.remove('cursor-input');
+            ring.classList.remove('cursor-input');
+        }
+    });
+
+    // Handle click states
+    document.addEventListener('mousedown', () => {
+        dot.classList.add('cursor-click');
+        ring.classList.add('cursor-click');
+    });
+
+    document.addEventListener('mouseup', () => {
+        dot.classList.remove('cursor-click');
+        ring.classList.remove('cursor-click');
+    });
+})();
