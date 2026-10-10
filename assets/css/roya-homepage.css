@@ -2141,3 +2141,104 @@ p {
         transform: translate3d(0, 0, 0);
     }
 }
+
+/* ============================================
+   BUTTON REDESIGN (ALL CTAs)
+   ============================================ */
+.oit-btn,
+.oit-btn-border,
+.st-btn,
+.dg-btn,
+.roya-premium-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: #f8f8f8 !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 50px !important;
+    padding: 8px 8px 8px 28px !important;
+    color: #111 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+    gap: 16px;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+/* The text inside button */
+.oit-btn span,
+.oit-btn-border span,
+.st-btn span,
+.dg-btn span,
+.roya-premium-btn span {
+    color: inherit;
+    transition: color 0.4s ease;
+}
+
+/* The icon wrapper (the circle) */
+.oit-btn i,
+.oit-btn-border i,
+.st-btn i,
+.dg-btn i,
+.roya-premium-btn .roya-btn-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    background-color: #ebebeb !important;
+    border-radius: 50% !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* SVG icons inside the wrapper */
+.oit-btn i svg,
+.oit-btn-border i svg,
+.st-btn i svg,
+.dg-btn i svg,
+.roya-premium-btn .roya-btn-icon svg {
+    color: #111 !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Hover state for the button */
+.oit-btn:hover,
+.oit-btn-border:hover,
+.st-btn:hover,
+.dg-btn:hover,
+.roya-premium-btn:hover {
+    background-color: #FF6A00 !important;
+    border-color: #FF6A00 !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 30px -5px rgba(255, 106, 0, 0.5) !important;
+}
+
+/* Hover state for the icon circle */
+.oit-btn:hover i,
+.oit-btn-border:hover i,
+.st-btn:hover i,
+.dg-btn:hover i,
+.roya-premium-btn:hover .roya-btn-icon {
+    background-color: #ffffff !important;
+}
+
+/* Hover state for the SVG arrow inside the circle */
+.oit-btn:hover i svg,
+.oit-btn-border:hover i svg,
+.st-btn:hover i svg,
+.dg-btn:hover i svg,
+.roya-premium-btn:hover .roya-btn-icon svg {
+    color: #FF6A00 !important;
+    /* Rotate the arrow 45 degrees to point right instead of up-right */
+    transform: rotate(45deg) !important;
+}
