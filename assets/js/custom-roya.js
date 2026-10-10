@@ -144,3 +144,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    /* Roya Metrics Reveal Animation via GSAP ScrollTrigger */
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        const metricRows = document.querySelectorAll('.roya-metric-row');
+        metricRows.forEach(row => {
+            ScrollTrigger.create({
+                trigger: row,
+                start: "top 55%", // Reveal when top edge reaches 55% of the viewport height
+                onEnter: () => row.classList.add('is-revealed'),
+                once: true
+            });
+        });
+
+        /* Roya Metrics Bulletproof Sticky Simulation */
+        const metricsLeft = document.querySelector('.roya-metrics-left');
+        const metricsRight = document.querySelector('.roya-metrics-right');
+        
+        if (metricsLeft && metricsRight) {
+            let mm = gsap.matchMedia();
+            mm.add("(min-width: 992px)", () => {
+                // Calculate exactly how much empty space the left column has to travel downwards
+                let getDistance = () => Math.max(0, metricsRight.offsetHeight - metricsLeft.offsetHeight);
+                
+                // Tween the Y position in perfect sync with the scroll
+                // This simulates sticky behavior without relying on buggy position: sticky
+                gsap.to(metricsLeft, {
+                    y: () => getDistance(),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: metricsLeft,
+                        start: "top top+=100", // Start translating exactly when it hits 100px from top
+                        end: () => "+=" + getDistance(), // Translate for exactly the available distance
+                        scrub: true,
+                        invalidateOnRefresh: true
+                    }
+                });
+            });
+        }
+    }
+});

@@ -26,7 +26,7 @@ body {
 
 /* Global Safeguard to prevent Horizontal Overflow on Mobile */
 body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 #smooth-wrapper {
@@ -271,13 +271,23 @@ p {
 }
 
 @keyframes orbFloat1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 40px) scale(1.08); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 40px) scale(1.08);
+    }
 }
 
 @keyframes orbFloat2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-45px, -35px) scale(1.06); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-45px, -35px) scale(1.06);
+    }
 }
 
 /* Cinematic Visual Stage (Parallax & Scale Target) */
@@ -506,8 +516,17 @@ p {
 }
 
 @keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.85);
+    }
 }
 
 .cinematic-season-badge {
@@ -639,8 +658,15 @@ p {
 }
 
 @keyframes ripplePulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.6); opacity: 0; }
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
 }
 
 .reel-heading {
@@ -747,13 +773,25 @@ p {
 }
 
 @keyframes spinInfinite {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes bounceIndicator {
-    0%, 100% { transform: translate(-50%, -50%); }
-    50% { transform: translate(-50%, -40%); }
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -40%);
+    }
 }
 
 /* Responsive Media Queries for Hero */
@@ -761,10 +799,12 @@ p {
     .cinematic-headline {
         font-size: clamp(40px, 7.5vw, 110px);
     }
+
     .cinematic-parallax-card.card-left {
         left: 2%;
         bottom: 18%;
     }
+
     .cinematic-parallax-card.card-right {
         right: 2%;
         top: 24%;
@@ -776,15 +816,19 @@ p {
         padding-top: 130px;
         padding-bottom: 70px;
     }
+
     .cinematic-parallax-card {
         padding: 14px 18px;
     }
+
     .cinematic-parallax-card.card-left {
         bottom: 14%;
     }
+
     .cinematic-parallax-card.card-right {
         top: 20%;
     }
+
     .cinematic-scroll-dial {
         display: none;
     }
@@ -792,12 +836,15 @@ p {
 
 @media (max-width: 991px) {
     .cinematic-parallax-card {
-        display: none; /* Hide floating cards on tablet/mobile to keep viewport clear */
+        display: none;
+        /* Hide floating cards on tablet/mobile to keep viewport clear */
     }
+
     .cinematic-headline {
         font-size: clamp(38px, 9vw, 80px);
         margin-bottom: 25px;
     }
+
     .cinematic-pillars-grid {
         justify-content: flex-start !important;
         margin-top: 20px;
@@ -809,23 +856,29 @@ p {
         padding-top: 115px;
         padding-bottom: 60px;
     }
+
     .cinematic-headline {
         font-size: clamp(34px, 10vw, 56px);
         line-height: 1.05;
     }
+
     .hl-outline {
         display: block;
         margin-right: 0;
     }
+
     .cinematic-lead-desc {
         font-size: 15px;
         line-height: 1.6;
     }
+
     .cinematic-button-row {
         flex-direction: column;
         align-items: stretch !important;
     }
-    .cinematic-primary-btn, .cinematic-reel-pill {
+
+    .cinematic-primary-btn,
+    .cinematic-reel-pill {
         justify-content: center;
         text-align: center;
     }
@@ -1147,4 +1200,221 @@ p {
 
 .oit-menu-content ul li a:hover::after {
     width: 100%;
+}
+
+/* --- Roya Metrics Section --- */
+.roya-metrics-section {
+    padding: 150px 0 0;
+    /* padding-bottom moved to inner columns to allow full-height stickiness */
+    background-color: #ffffff;
+    overflow: visible;
+    /* Important for sticky */
+}
+
+.roya-metrics-left {
+    position: sticky;
+    top: 25vh;
+    padding-bottom: 50px;
+}
+
+.roya-metrics-eyebrow {
+    display: inline-block;
+    color: #ff4632;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.roya-metrics-title {
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 900;
+    color: #101216;
+    line-height: 1.05;
+    margin-bottom: 25px;
+    letter-spacing: -1.5px;
+}
+
+.roya-metrics-desc {
+    font-size: 20px;
+    color: #444;
+    line-height: 1.5;
+    max-width: 90%;
+    margin-bottom: 35px;
+}
+
+.roya-metrics-right {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
+    /* space to start scrolling after title */
+    padding-bottom: calc(10vh + 200px);
+    /* added section padding here so row extends fully to the bottom */
+}
+
+.roya-metric-row {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(16, 18, 22, 0.1);
+    padding: 60px 0;
+    min-height: 35vh;
+    justify-content: center;
+}
+
+.roya-metric-row:last-child {
+    border-bottom: 1px solid rgba(16, 18, 22, 0.1);
+}
+
+.roya-metric-number-wrapper {
+    overflow: hidden;
+    /* For clipping reveal */
+    margin-bottom: 15px;
+}
+
+.roya-metric-number {
+    font-size: clamp(80px, 9vw, 150px);
+    font-weight: 900;
+    color: #101216;
+    /* Starts black/dark */
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 0;
+    /* Sudden reveal initial state */
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, color 0.4s ease;
+}
+
+.roya-metric-symbol {
+    font-size: 0.7em;
+    color: #ff4632;
+    /* Orange accent on symbols */
+    display: inline-block;
+}
+
+.roya-metric-text-label {
+    font-size: clamp(50px, 6vw, 100px) !important;
+    letter-spacing: -2px;
+}
+
+.roya-metric-text {
+    font-size: 22px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.4;
+    max-width: 450px;
+    /* Sudden reveal initial state */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 0.5s ease 0.1s;
+    /* Staggered */
+}
+
+/* Active states toggled by Intersection Observer / ScrollTrigger */
+.roya-metric-row.is-revealed .roya-metric-number {
+    transform: translateY(0);
+    opacity: 1;
+    color: #ff4632;
+    /* Flash or turn orange */
+}
+
+.roya-metric-row.is-revealed .roya-metric-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .roya-metrics-section {
+        padding: 80px 0;
+    }
+
+    .roya-metrics-left {
+        position: relative;
+        top: 0;
+        margin-bottom: 60px;
+    }
+
+    .roya-metrics-right {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .roya-metric-row {
+        min-height: auto;
+        padding: 40px 0;
+    }
+}
+
+
+
+/* Fix: Keep the left metrics content sticky until section end */
+.roya-metrics-section {
+    position: relative;
+    overflow: visible !important;
+    padding-top: 150px;
+    padding-bottom: 0;
+}
+
+.roya-metrics-section>.container {
+    overflow: visible !important;
+}
+
+.roya-metrics-section>.container>.row {
+    align-items: stretch;
+    overflow: visible !important;
+}
+
+/* Left Bootstrap column */
+.roya-metrics-section .row>.col-xl-5 {
+    position: static;
+    overflow: visible !important;
+}
+
+/* Sticky content (Animated via GSAP to prevent ScrollSmoother conflicts) */
+.roya-metrics-left {
+    height: fit-content;
+    align-self: flex-start;
+    padding-bottom: 50px;
+    z-index: 2;
+}
+
+/* Right column defines the scrollable section height */
+.roya-metrics-right {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.roya-metric-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 35vh;
+    padding: 60px 0;
+}
+
+/* Disable sticky on smaller screens */
+@media (max-width: 991px) {
+    .roya-metrics-section {
+        padding: 80px 0;
+    }
+
+    .roya-metrics-left {
+        position: static;
+        top: auto;
+        padding-bottom: 0;
+        margin-bottom: 60px;
+    }
+
+    .roya-metrics-right {
+        padding: 0;
+    }
+
+    .roya-metric-row {
+        min-height: auto;
+        padding: 40px 0;
+    }
 }
