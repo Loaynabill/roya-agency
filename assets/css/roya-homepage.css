@@ -2242,3 +2242,207 @@ p {
     /* Rotate the arrow 45 degrees to point right instead of up-right */
     transform: rotate(45deg) !important;
 }
+
+/* ============================================
+   GLASSMORPHISM HEADER (REVISED)
+   ============================================ */
+.oit-header-area {
+    padding-top: 20px !important;
+}
+
+.roya-glass-header {
+    position: relative;
+    padding: 0 50px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    z-index: 100;
+}
+
+/* The skewed glass background */
+.roya-glass-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    /* Faint purple/dark blue translucent background matching the image */
+    background: rgba(30, 25, 60, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* Subtle outline */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Skew to create the slanted edges ( / \ or / / ) */
+    transform: skewX(-20deg);
+    z-index: -1;
+    border-radius: 8px;
+}
+
+/* Ensure content is positioned above the background */
+.roya-glass-header > div {
+    position: relative;
+    z-index: 1;
+}
+
+/* Center the menu items & Modern Nav Links */
+.roya-glass-header .oit-header-menu {
+    text-align: center;
+}
+
+.roya-glass-header .oit-header-menu ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.roya-glass-header .oit-header-menu ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.roya-glass-header .oit-header-menu ul li a {
+    position: relative;
+    color: #f0f0f0 !important;
+    padding: 12px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.roya-glass-header .oit-header-menu ul li a:hover,
+.roya-glass-header .oit-header-menu ul li a.active {
+    color: #FF6A00 !important;
+}
+
+/* Hide default template lines if any */
+.roya-glass-header .oit-header-menu ul li a::before {
+    display: none !important;
+}
+
+/* Modern Hover Underline Effect */
+.roya-glass-header .oit-header-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #FF6A00;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(255, 106, 0, 0.5); /* Glowing underline */
+}
+
+.roya-glass-header .oit-header-menu ul li a:hover::after,
+.roya-glass-header .oit-header-menu ul li a.active::after {
+    width: calc(100% - 20px);
+}
+
+/* Header Contact Button - Skewed! */
+.roya-header-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 32px;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+/* The skewed background/border for the button */
+.roya-header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Skew the button to match the header's angle */
+    transform: skewX(-20deg);
+    border: 1px solid #FF6A00;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.roya-header-btn:hover::before {
+    background-color: #FF6A00;
+    box-shadow: 0 5px 20px rgba(255, 106, 0, 0.4);
+}
+
+/* Adjust mobile layout */
+@media (max-width: 991px) {
+    .roya-glass-header {
+        padding: 0 20px;
+    }
+    .roya-glass-header::before {
+        transform: none; /* Remove skew on mobile */
+        border-radius: 8px;
+        left: 0; right: 0;
+    }
+    .roya-header-btn::before {
+        transform: none;
+    }
+}
+
+/* ============================================
+   MODERN HAMBURGER MENU (MOBILE)
+   ============================================ */
+.roya-glass-header .oit-header-bar {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+    display: flex; /* Removed !important to respect d-xl-none */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end; /* Right-align the staggered lines */
+    width: 32px !important;
+    height: 20px !important;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.roya-glass-header .oit-header-bar span {
+    display: block;
+    height: 2px !important;
+    background-color: #f0f0f0 !important;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin: 0 !important; /* override template margins if any */
+}
+
+/* Staggered lines for a modern asymmetrical look */
+.roya-glass-header .oit-header-bar span:nth-child(1) { width: 100% !important; }
+.roya-glass-header .oit-header-bar span:nth-child(2) { width: 75% !important; }
+.roya-glass-header .oit-header-bar span:nth-child(3) { width: 50% !important; }
+
+/* Hover state: make them full width and chic orange */
+.roya-glass-header .oit-header-bar:hover span {
+    width: 100% !important;
+    background-color: #FF6A00 !important;
+}
+
+/* Open/Active state: transition to an X shape in orange */
+.roya-glass-header .oit-header-bar.info-open span:nth-child(1),
+.roya-glass-header .oit-header-bar.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg) !important;
+    width: 100% !important;
+    background-color: #FF6A00 !important;
+}
+.roya-glass-header .oit-header-bar.info-open span:nth-child(2),
+.roya-glass-header .oit-header-bar.active span:nth-child(2) {
+    opacity: 0 !important;
+    transform: translateX(10px) !important;
+}
+.roya-glass-header .oit-header-bar.info-open span:nth-child(3),
+.roya-glass-header .oit-header-bar.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg) !important;
+    width: 100% !important;
+    background-color: #FF6A00 !important;
+}
