@@ -305,3 +305,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Project Cards Hover - Mouse following logic for the VIEW button
+    const projectItems = document.querySelectorAll('.st-project-item');
+    projectItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const rect = item.getBoundingClientRect();
+            // Calculate mouse position relative to the card
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Set CSS variables that position the ::after pseudo-element
+            item.style.setProperty('--mouse-x', `${x}px`);
+            item.style.setProperty('--mouse-y', `${y}px`);
+        });
+        
+        // Reset to center when mouse leaves
+        item.addEventListener('mouseleave', () => {
+            item.style.setProperty('--mouse-x', '50%');
+            item.style.setProperty('--mouse-y', '50%');
+        });
+    });
+});
+
